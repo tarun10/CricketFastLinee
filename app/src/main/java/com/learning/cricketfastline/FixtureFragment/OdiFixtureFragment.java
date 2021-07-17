@@ -12,12 +12,12 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cricket.adfreecricketliveline.FixtureFragment.adapters.DateWiseRecyclerViewAdapter;
-import com.cricket.adfreecricketliveline.FixtureFragment.adapters.TeamWiseRecyclerViewAdapter;
-import com.cricket.adfreecricketliveline.FixtureFragment.model.SeriesViewModel;
-import com.cricket.adfreecricketliveline.R;
-import com.cricket.adfreecricketliveline.model.MatchWithTitle;
-import com.cricket.adfreecricketliveline.utility.constantfiles.RecyclerItemClickEvent;
+import com.learning.cricketfastline.FixtureFragment.adapters.DateWiseRecyclerViewAdapter;
+import com.learning.cricketfastline.FixtureFragment.adapters.TeamWiseRecyclerViewAdapter;
+import com.learning.cricketfastline.FixtureFragment.model.SeriesViewModel;
+import com.learning.cricketfastline.R;
+import com.learning.cricketfastline.model.MatchWithTitle;
+import com.learning.cricketfastline.utility.constantfiles.RecyclerItemClickEvent;
 
 import java.util.ArrayList;
 

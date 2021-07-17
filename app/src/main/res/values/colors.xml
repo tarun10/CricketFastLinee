@@ -13,15 +13,15 @@
     <color name="button_selected">#3c566d</color>
     <color name="backgroundTheme">#e7f7f7</color>
     <color name="tab_background">#108670</color>
-    <color name="yet_background">#06a95a</color>
+    <color name="yet_background">#ce2117</color>
     <color name="dark_header">#114a2d</color>
     <color name="notout">#1A3530</color>
     <color name="left_session">#015e9b</color>
     <color name="right_session">#a73f3e</color>
-    <color name="header_colour">#90e0b9</color>
-    <color name="main_background">#bddfc3</color>
+    <color name="header_colour">#ffb6c1</color>
+    <color name="main_background">#ffb6c1</color>
     <color name="tab_unselect">#FFFFFF</color>
-    <color name="tab_selected">#06a95a</color>
+    <color name="tab_selected">#ce2117</color>
 </resources>
 
 

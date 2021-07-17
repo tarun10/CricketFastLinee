@@ -208,7 +208,7 @@
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/dark_header"
+                                android:background="#2f0101"
                                 android:fontFamily="@font/gotham_medium"
                                 android:gravity="center"
                                 android:padding="10dp"
@@ -989,7 +989,7 @@
                                 android:id="@+id/showSummary"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@color/dark_header"
+                                android:background="#2f0101"
                                 android:fontFamily="@font/gotham_medium"
                                 android:padding="10dp"
                                 android:text="View Quick Summary"

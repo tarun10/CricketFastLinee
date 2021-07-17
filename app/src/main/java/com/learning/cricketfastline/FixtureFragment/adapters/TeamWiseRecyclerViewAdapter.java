@@ -7,7 +7,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cricket.adfreecricketliveline.R;
+import com.learning.cricketfastline.R;
+
 
 public class TeamWiseRecyclerViewAdapter  extends RecyclerView.Adapter<TeamWiseRecyclerViewAdapter.ViewHolder> {
     @NonNull

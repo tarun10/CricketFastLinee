@@ -6,11 +6,11 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.cricket.adfreecricketliveline.model.AllMatch;
-import com.cricket.adfreecricketliveline.model.MatchPojo;
-import com.cricket.adfreecricketliveline.model.MatchWithTitle;
-import com.cricket.adfreecricketliveline.model.UpcomingDataModel;
-import com.cricket.adfreecricketliveline.remoteconnection.ApiServices;
+import com.learning.cricketfastline.model.AllMatch;
+import com.learning.cricketfastline.model.MatchPojo;
+import com.learning.cricketfastline.model.MatchWithTitle;
+import com.learning.cricketfastline.model.UpcomingDataModel;
+import com.learning.cricketfastline.remoteconnection.ApiServices;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

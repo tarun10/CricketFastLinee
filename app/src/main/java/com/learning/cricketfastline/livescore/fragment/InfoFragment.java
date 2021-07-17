@@ -15,15 +15,15 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.cricket.adfreecricketliveline.R;
-import com.cricket.adfreecricketliveline.livescore.adapters.PlayingElevenTeamAAdapter;
-import com.cricket.adfreecricketliveline.livescore.adapters.PlayingElevenTeamBAdapter;
-import com.cricket.adfreecricketliveline.livescore.models.LiveScoreModel;
-import com.cricket.adfreecricketliveline.model.livejsondata.LiveScoreDataModel;
-import com.cricket.adfreecricketliveline.model.livejsondata.LiveScoreModelJsonRun;
-import com.cricket.adfreecricketliveline.model.players.Players;
-import com.cricket.adfreecricketliveline.utility.CommonFunction;
 import com.google.gson.Gson;
+import com.learning.cricketfastline.R;
+import com.learning.cricketfastline.livescore.adapters.PlayingElevenTeamAAdapter;
+import com.learning.cricketfastline.livescore.adapters.PlayingElevenTeamBAdapter;
+import com.learning.cricketfastline.livescore.models.LiveScoreModel;
+import com.learning.cricketfastline.model.livejsondata.LiveScoreDataModel;
+import com.learning.cricketfastline.model.livejsondata.LiveScoreModelJsonRun;
+import com.learning.cricketfastline.model.players.Players;
+import com.learning.cricketfastline.utility.CommonFunction;
 
 import java.util.ArrayList;
 import java.util.Arrays;

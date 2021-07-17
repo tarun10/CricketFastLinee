@@ -10,9 +10,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.cricket.adfreecricketliveline.R;
-import com.cricket.adfreecricketliveline.model.seriesdata.LiveSeries;
-import com.cricket.adfreecricketliveline.utility.constantfiles.RecyclerItemClickEvent;
+
+import com.learning.cricketfastline.R;
+import com.learning.cricketfastline.model.seriesdata.LiveSeries;
+import com.learning.cricketfastline.utility.constantfiles.RecyclerItemClickEvent;
 
 import java.util.ArrayList;
 

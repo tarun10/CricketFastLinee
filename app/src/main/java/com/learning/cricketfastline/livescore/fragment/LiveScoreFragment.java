@@ -13,13 +13,13 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.bumptech.glide.Glide;
-import com.cricket.adfreecricketliveline.R;
-import com.cricket.adfreecricketliveline.databinding.FragmentLiveBinding;
-import com.cricket.adfreecricketliveline.livescore.models.LiveScoreModel;
-import com.cricket.adfreecricketliveline.model.livejsondata.LiveScoreDataModel;
-import com.cricket.adfreecricketliveline.model.livejsondata.LiveScoreModelJsonRun;
-import com.cricket.adfreecricketliveline.model.players.Players;
-import com.cricket.adfreecricketliveline.utility.TimeUtility;
+import com.learning.cricketfastline.R;
+import com.learning.cricketfastline.databinding.FragmentLiveBinding;
+import com.learning.cricketfastline.livescore.models.LiveScoreModel;
+import com.learning.cricketfastline.model.livejsondata.LiveScoreDataModel;
+import com.learning.cricketfastline.model.livejsondata.LiveScoreModelJsonRun;
+import com.learning.cricketfastline.model.players.Players;
+import com.learning.cricketfastline.utility.TimeUtility;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;

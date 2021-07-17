@@ -15,9 +15,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.cricket.adfreecricketliveline.R;
-import com.cricket.adfreecricketliveline.model.MatchWithTitle;
-import com.cricket.adfreecricketliveline.utility.constantfiles.RecyclerItemClickEvent;
+import com.learning.cricketfastline.R;
+import com.learning.cricketfastline.model.MatchWithTitle;
+import com.learning.cricketfastline.utility.constantfiles.RecyclerItemClickEvent;
 
 import java.util.ArrayList;
 

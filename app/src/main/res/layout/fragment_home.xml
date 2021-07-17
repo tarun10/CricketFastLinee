@@ -52,7 +52,7 @@
         app:tabMode="auto"
         app:tabSelectedTextColor="@color/white"
         app:tabTextAppearance="@style/customfontstyle"
-        app:tabTextColor="@color/tab_background"
+        app:tabTextColor="@color/yet_background"
         tools:ignore="MissingConstraints" />
 
     <androidx.viewpager2.widget.ViewPager2
