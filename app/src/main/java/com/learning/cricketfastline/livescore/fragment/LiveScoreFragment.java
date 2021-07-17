@@ -155,20 +155,22 @@ public class LiveScoreFragment extends Fragment {
                 }
                 if (liveScoreDataModel != null && liveScoreDataModel.getJsondata() != null) {
 
-                    if (jssondata.get(0).getMatchType().equalsIgnoreCase("Test")) {
-                        fragmentLiveBinding.testSessionLayout.setVisibility(View.VISIBLE);
-                        fragmentLiveBinding.sessionLayout.setVisibility(View.GONE);
-                        fragmentLiveBinding.testTeamA.setText(liveScoreDataModel.getJsondata().getTestTeamA());
-                        fragmentLiveBinding.testTeamARate1.setText(liveScoreDataModel.getJsondata().getTestTeamARate1());
-                        fragmentLiveBinding.testTeamARate2.setText(liveScoreDataModel.getJsondata().getTestTeamARate2());
+                    if (jssondata.get(0).getMatchType() != null) {
+                        if (jssondata.get(0).getMatchType().equalsIgnoreCase("Test")) {
+                            fragmentLiveBinding.testSessionLayout.setVisibility(View.VISIBLE);
+                            fragmentLiveBinding.sessionLayout.setVisibility(View.GONE);
+                            fragmentLiveBinding.testTeamA.setText(liveScoreDataModel.getJsondata().getTestTeamA());
+                            fragmentLiveBinding.testTeamARate1.setText(liveScoreDataModel.getJsondata().getTestTeamARate1());
+                            fragmentLiveBinding.testTeamARate2.setText(liveScoreDataModel.getJsondata().getTestTeamARate2());
 
-                        fragmentLiveBinding.testTeamB.setText(liveScoreDataModel.getJsondata().getTestTeamB());
-                        fragmentLiveBinding.testTeamBRate1.setText(liveScoreDataModel.getJsondata().getTestTeamBRate1());
-                        fragmentLiveBinding.testTeamBRate2.setText(liveScoreDataModel.getJsondata().getTestTeamBRate2());
+                            fragmentLiveBinding.testTeamB.setText(liveScoreDataModel.getJsondata().getTestTeamB());
+                            fragmentLiveBinding.testTeamBRate1.setText(liveScoreDataModel.getJsondata().getTestTeamBRate1());
+                            fragmentLiveBinding.testTeamBRate2.setText(liveScoreDataModel.getJsondata().getTestTeamBRate2());
 
-                        fragmentLiveBinding.testdraw.setText("Draw");
-                        fragmentLiveBinding.TestdrawRate1.setText(liveScoreDataModel.getJsondata().getTestdrawRate1());
-                        fragmentLiveBinding.TestdrawRate2.setText(liveScoreDataModel.getJsondata().getTestdrawRate2());
+                            fragmentLiveBinding.testdraw.setText("Draw");
+                            fragmentLiveBinding.TestdrawRate1.setText(liveScoreDataModel.getJsondata().getTestdrawRate1());
+                            fragmentLiveBinding.TestdrawRate2.setText(liveScoreDataModel.getJsondata().getTestdrawRate2());
+                        }
                     }
 
                     fragmentLiveBinding.matchInfo.setText(liveScoreDataModel.getJsondata().getScore());
