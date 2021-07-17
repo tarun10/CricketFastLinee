@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/pull_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:fitsSystemWindows="true">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/not_yet_start"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="Match is not started yet"
+                    android:textAlignment="center"
+                    android:textColor="@color/purple_700"
+                    android:textSize="18sp"
+                    android:visibility="gone"></TextView>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/scoreCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:visibility="visible">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@color/yet_background"
+                        android:weightSum="2"
+                        app:cardCornerRadius="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1.1"
+                                android:orientation="vertical">
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="10dp">
+
+                                    <TextView
+                                        android:id="@+id/liveScoreT1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_toRightOf="@+id/teamFlag"
+                                        android:fontFamily="@font/gotham_medium"
+                                        android:text="--/-"
+                                        android:textColor="@color/white"
+                                        android:textSize="14sp"
+                                        android:visibility="visible" />
+
+                                    <TextView
+                                        android:id="@+id/currentOver"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@+id/liveScoreT1"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_marginTop="5dp"
+                                        android:layout_toRightOf="@+id/teamFlag"
+                                        android:fontFamily="@font/gotham_light"
+                                        android:gravity="right"
+                                        android:text="0.0"
+                                        android:textColor="@color/white"
+                                        android:textSize="12sp" />
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/teamFlag"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_margin="5dp">
+
+                                    </de.hdodenhof.circleimageview.CircleImageView>
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp">
+
+                                    <TextView
+                                        android:id="@+id/targetTeamname"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_marginTop="10dp"
+                                        android:layout_toRightOf="@+id/targetTeamImage"
+                                        android:fontFamily="@font/gotham_medium"
+                                        android:text="--/--/--"
+                                        android:textColor="@color/white"
+                                        android:textSize="12sp"
+                                        android:visibility="visible">
+
+                                    </TextView>
+
+                                    <TextView
+                                        android:id="@+id/targetScore"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@+id/targetTeamname"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_toRightOf="@+id/targetTeamImage"
+                                        android:fontFamily="@font/gotham_light"
+                                        android:text="--"
+                                        android:textColor="@color/white"
+                                        android:textSize="12sp"
+                                        android:visibility="visible">
+
+                                    </TextView>
+
+
+                                    <de.hdodenhof.circleimageview.CircleImageView
+                                        android:id="@+id/targetTeamImage"
+                                        android:layout_width="50dp"
+                                        android:layout_height="50dp"
+                                        android:layout_margin="5dp" />
+                                </RelativeLayout>
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight=".9"
+                                android:orientation="vertical"
+                                android:padding="10dp">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center_vertical|right"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:id="@+id/sound_status"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginRight="5dp"
+                                        android:fontFamily="@font/gotham_light"
+                                        android:gravity="center"
+                                        android:text="Sound is ON"
+                                        android:textAllCaps="true"
+                                        android:textColor="@color/white"
+                                        android:textSize="12sp" />
+
+                                    <ImageView
+                                        android:id="@+id/sound_icon"
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:background="?attr/selectableItemBackgroundBorderless"
+                                        android:src="@drawable/ic_baseline_volume_up_24"></ImageView>
+                                </LinearLayout>
+
+                                <TextView
+                                    android:id="@+id/match_info"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="70dp"
+                                    android:background="@color/white"
+                                    android:ellipsize="end"
+                                    android:fontFamily="@font/gotham_medium"
+                                    android:gravity="center"
+                                    android:maxLines="2"
+                                    android:text="@string/app_name"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/yet_background"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/yet_background"
+                        app:cardCornerRadius="10dp">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/yet_background"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/dark_header"
+                                android:fontFamily="@font/gotham_medium"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="Current over"
+                                android:textColor="@color/white" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/yet_background"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:paddingLeft="10dp"
+                                    android:text="Last 6 ball"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp">
+
+                                </TextView>
+
+                                <TextView
+                                    android:id="@+id/bowlone"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/circle"
+                                    android:fontFamily="@font/gotham_medium"
+                                    android:gravity="center"
+                                    android:text="-"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp">
+
+                                </TextView>
+
+                                <TextView
+                                    android:id="@+id/bowltwo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/circle"
+                                    android:fontFamily="@font/gotham_medium"
+                                    android:gravity="center"
+                                    android:text="-"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp">
+
+                                </TextView>
+
+                                <TextView
+                                    android:id="@+id/bowlthree"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/circle"
+                                    android:fontFamily="@font/gotham_medium"
+                                    android:gravity="center"
+                                    android:text="-"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp">
+
+                                </TextView>
+
+                                <TextView
+                                    android:id="@+id/bowlfour"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/circle"
+                                    android:fontFamily="@font/gotham_medium"
+                                    android:gravity="center"
+                                    android:text="-"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp">
+
+                                </TextView>
+
+                                <TextView
+                                    android:id="@+id/bowlfive"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/circle"
+                                    android:fontFamily="@font/gotham_medium"
+                                    android:gravity="center"
+                                    android:text="-"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp">
+
+                                </TextView>
+
+                                <TextView
+                                    android:id="@+id/bowlsix"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@drawable/circle"
+                                    android:fontFamily="@font/gotham_medium"
+                                    android:gravity="center"
+                                    android:text="-"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp">
+
+                                </TextView>
+
+                            </LinearLayout>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:backgroundTint="@color/yet_background"
+                        app:cardCornerRadius="7dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <LinearLayout
+                                android:id="@+id/sessionLayout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/gotham_medium"
+                                    android:padding="5dp"
+                                    android:text="Favorite"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/fav_team_name"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:padding="5dp"
+                                    android:textAllCaps="true"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp">
+
+                                </TextView>
+
+                                <TextView
+                                    android:id="@+id/rate_a"
+                                    android:layout_width="45dp"
+                                    android:layout_height="30dp"
+                                    android:background="@color/left_session"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp">
+
+                                </TextView>
+
+                                <TextView
+                                    android:id="@+id/rate_b"
+                                    android:layout_width="45dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@color/right_session"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp">
+
+                                </TextView>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:fontFamily="@font/gotham_medium"
+                                        android:padding="5dp"
+                                        android:text="Over"
+                                        android:textColor="@color/white"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/overs"
+                                        android:layout_width="45dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@color/right_session"
+                                        android:fontFamily="@font/gotham_light"
+                                        android:gravity="center"
+                                        android:padding="5dp"
+                                        android:text="0"
+                                        android:textColor="@color/white"
+                                        android:textSize="12sp" />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:gravity="right"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:fontFamily="@font/gotham_medium"
+                                        android:padding="5dp"
+                                        android:text="SESSION"
+                                        android:textColor="@color/white"
+                                        android:textSize="12sp" />
+
+                                    <TextView
+                                        android:id="@+id/sessionA"
+                                        android:layout_width="45dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginLeft="5dp"
+                                        android:background="@color/left_session"
+                                        android:fontFamily="@font/gotham_light"
+                                        android:gravity="center"
+                                        android:padding="5dp"
+                                        android:text="0"
+                                        android:textColor="@color/white"
+                                        android:textSize="12sp" />
+
+
+                                    <TextView
+                                        android:id="@+id/sessionB"
+                                        android:layout_width="45dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginLeft="5dp"
+                                        android:background="@color/right_session"
+                                        android:fontFamily="@font/gotham_light"
+                                        android:gravity="center"
+                                        android:padding="5dp"
+                                        android:text="0"
+                                        android:textColor="@color/white"
+                                        android:textSize="12sp">
+
+                                    </TextView>
+                                </LinearLayout>
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/gotham_medium"
+                                    android:gravity="left"
+                                    android:padding="5dp"
+                                    android:text="RUN X BALL"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp" />
+
+                                <TextView
+                                    android:id="@+id/run_x_ball1"
+                                    android:layout_width="45dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@color/left_session"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp" />
+
+
+                                <TextView
+                                    android:id="@+id/run_x_ball2"
+                                    android:layout_width="45dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@color/right_session"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp">
+
+                                </TextView>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/testSessionLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone"
+                        app:cardCornerRadius="7dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/yet_background"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/testTeamA"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/gotham_medium"
+                                    android:text=""
+                                    android:textColor="@color/white">
+
+                                </TextView>
+
+
+                                <TextView
+                                    android:id="@+id/testTeamARate1"
+                                    android:layout_width="45dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@color/left_session"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:gravity="center"
+                                    android:padding="3dp"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textSize="11sp" />
+
+
+                                <TextView
+                                    android:id="@+id/testTeamARate2"
+                                    android:layout_width="45dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@color/right_session"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:gravity="center"
+                                    android:padding="3dp"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textSize="11sp">
+
+                                </TextView>
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_weight="3"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/testTeamB"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/gotham_medium"
+                                    android:text=""
+                                    android:textColor="@color/white">
+
+                                </TextView>
+
+
+                                <TextView
+                                    android:id="@+id/testTeamBRate1"
+                                    android:layout_width="45dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@color/left_session"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp" />
+
+
+                                <TextView
+                                    android:id="@+id/testTeamBRate2"
+                                    android:layout_width="45dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@color/right_session"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp">
+
+                                </TextView>
+
+                            </LinearLayout>
+
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_weight="3"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/testdraw"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/gotham_medium"
+                                    android:text=""
+                                    android:textColor="@color/white">
+
+                                </TextView>
+
+
+                                <TextView
+                                    android:id="@+id/TestdrawRate1"
+                                    android:layout_width="45dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@color/left_session"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp" />
+
+
+                                <TextView
+                                    android:id="@+id/TestdrawRate2"
+                                    android:layout_width="45dp"
+                                    android:layout_height="30dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@color/right_session"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:gravity="center"
+                                    android:padding="5dp"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:textSize="12sp">
+
+                                </TextView>
+
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:visibility="gone"
+                        app:cardCornerRadius="7dp">
+
+                        <TextView
+                            android:id="@+id/current_ran_rate"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/yet_background"
+                            android:text="--"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+
+                        <TextView
+                            android:id="@+id/required_run_rate"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/yet_background"
+                            android:text="--"
+                            android:textAlignment="center"
+                            android:textColor="@color/white"
+                            android:textSize="12sp" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@color/yet_background"
+                        app:cardCornerRadius="10dp">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/yet_background"
+                            android:orientation="vertical">
+
+                            <include layout="@layout/bastma_header_layout">
+
+                            </include>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:background="@color/header_colour"
+                                android:orientation="horizontal"
+                                android:padding="10dp"
+                                android:weightSum="6">
+
+                                <TextView
+                                    android:id="@+id/btname1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="-"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/btRun1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight=".8"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="0"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/btBall1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight=".8"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="0"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/btFours1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight=".7"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="0"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/btSixes1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight=".7"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="0"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/btRunrates1"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:maxLength="5"
+                                    android:text="0"
+                                    android:textColor="@color/white"
+                                    android:tooltipText="0" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:orientation="horizontal"
+                                android:padding="10dp"
+                                android:weightSum="6">
+
+                                <TextView
+                                    android:id="@+id/btname2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="-"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/btRun2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight=".8"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="0"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/btBall2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight=".8"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="0"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/btFours2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight=".7"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="0"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/btSixes2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight=".7"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="0"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/btRunrates2"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:maxLength="5"
+                                    android:text="0"
+                                    android:textColor="@color/white" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/yet_background"
+                        app:cardCornerRadius="10dp">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/yet_background"
+                            android:orientation="vertical">
+
+                            <include layout="@layout/bowling_header_layout"></include>
+
+
+                            <androidx.appcompat.widget.LinearLayoutCompat
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:orientation="horizontal"
+                                android:padding="10dp"
+
+                                android:weightSum="6">
+
+                                <TextView
+                                    android:id="@+id/bowler_name"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="2"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="-"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/currentBollerOver"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight=".8"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="0"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/maden_over"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight=".8"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="0"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/bowlerrun"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight=".7"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="0"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/bowlWickets"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight=".7"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="0"
+                                    android:textColor="@color/white" />
+
+                                <TextView
+                                    android:id="@+id/economy_rate"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/gotham_light"
+                                    android:text="0"
+                                    android:textColor="@color/white" />
+
+                            </androidx.appcompat.widget.LinearLayoutCompat>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:cardCornerRadius="10dp">
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/showSummary"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/dark_header"
+                                android:fontFamily="@font/gotham_medium"
+                                android:padding="10dp"
+                                android:text="View Quick Summary"
+                                android:textColor="@color/white"></TextView>
+
+                            <TextView
+                                android:id="@+id/summary"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:fitsSystemWindows="true"
+                                android:fontFamily="@font/gotham_light"
+                                android:textAlignment="center"
+                                android:textColor="@color/text_heading"></TextView>
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+                    </androidx.cardview.widget.CardView>
+                </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

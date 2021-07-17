@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AdsFree Cricket Live Line</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="invite_friends">Invite Friends</string>
+    <string name="share_app">Share App</string>
+</resources>

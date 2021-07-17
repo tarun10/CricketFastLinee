@@ -1,0 +1,50 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="58dp"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:visibility="gone"
+    android:weightSum="3">
+
+    <TextView
+        android:id="@+id/first_btn"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/tab_background"
+        android:gravity="center"
+        android:text="Date wise"
+        android:textColor="@color/white" />
+
+    <View
+        android:layout_width="20dp"
+        android:layout_height="match_parent">
+
+    </View>
+
+    <TextView
+        android:id="@+id/secondt_btn"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/tab_background"
+        android:gravity="center"
+        android:text="Series Wise"
+        android:textColor="@color/white" />
+
+    <View
+        android:layout_width="20dp"
+        android:layout_height="match_parent">
+
+    </View>
+
+    <TextView
+        android:id="@+id/third_btn"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/tab_background"
+        android:gravity="center"
+        android:text="Team Wise"
+        android:textColor="@color/white" />
+</LinearLayout>

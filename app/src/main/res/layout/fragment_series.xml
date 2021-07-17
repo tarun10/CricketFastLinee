@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".livescore.fragment.SeriesFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <com.google.android.material.tabs.TabLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                app:tabBackground="@drawable/tab_color_selector"
+                app:tabIndicatorColor="@color/black"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextColor="@color/tab_background">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ODI" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="T20" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TEST" />
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/odi_match"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_gravity="center_horizontal"-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:background="@color/tab_background"-->
+            <!--                android:padding="5dp"-->
+            <!--                android:text="ODI"-->
+            <!--                android:textAlignment="center"-->
+            <!--                android:textColor="@color/white" />-->
+
+            <!--            <View-->
+            <!--                android:layout_width="10dp"-->
+            <!--                android:layout_height="match_parent" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/t_twenty_match"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_gravity="center_horizontal"-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:background="@drawable/button_outlayer"-->
+            <!--                android:padding="5dp"-->
+            <!--                android:text="T20"-->
+            <!--                android:textAlignment="center"-->
+            <!--                android:textColor="@color/tab_background" />-->
+
+            <!--            <View-->
+            <!--                android:layout_width="10dp"-->
+            <!--                android:layout_height="match_parent" />-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/test_match"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_gravity="center_horizontal"-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:background="@drawable/button_outlayer"-->
+            <!--                android:padding="5dp"-->
+            <!--                android:text="TEST"-->
+            <!--                android:textAlignment="center"-->
+            <!--                android:textColor="@color/tab_background" />-->
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:visibility="gone"
+            android:id="@+id/series_status"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="No data">
+
+        </TextView>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="red">#DF1111</color>
+    <color name="white">#ffffff</color>
+    <color name="background_theme">#e7f7f7</color>
+    <color name="text_heading">#114a2d</color>
+    <color name="button_selected">#3c566d</color>
+    <color name="backgroundTheme">#e7f7f7</color>
+    <color name="tab_background">#108670</color>
+    <color name="yet_background">#06a95a</color>
+    <color name="dark_header">#114a2d</color>
+    <color name="notout">#1A3530</color>
+    <color name="left_session">#015e9b</color>
+    <color name="right_session">#a73f3e</color>
+    <color name="header_colour">#90e0b9</color>
+    <color name="main_background">#bddfc3</color>
+    <color name="tab_unselect">#FFFFFF</color>
+    <color name="tab_selected">#06a95a</color>
+</resources>
+
+
+<!--    Dark sea green color code : #108670-->
+<!--    Bubble color - #07d7b1-->
+<!--    Application Background color - #e7f7f7-->
+
+<!--    Icons color on dark background - #e7f7f7-->
+<!--    Icons  color on Light background  - #0f3d4c-->

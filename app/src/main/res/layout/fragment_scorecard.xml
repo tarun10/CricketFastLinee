@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".livescore.fragment.ScorecardFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:weightSum="2">
+
+
+            <com.google.android.material.tabs.TabLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/tablayoutScorecard"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:tabBackground="@drawable/tab_color_selector"
+                app:tabIndicatorColor="@color/black"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextColor="@color/tab_background">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="---" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="---" />
+
+
+            </com.google.android.material.tabs.TabLayout>
+
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/playersRunLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/firstInningHeader"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_toLeftOf="@+id/inningFirstScore"
+                            android:background="@color/white"
+                            android:padding="10dp"
+                            android:text="1st Inning"
+                            android:textColor="@color/tab_background" />
+
+                        <TextView
+                            android:id="@+id/inningFirstScore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:background="@color/white"
+                            android:gravity="right"
+                            android:padding="10dp"
+                            android:text="Inning 1"
+                            android:textColor="@color/tab_background" />
+                    </RelativeLayout>
+
+
+                    <include
+                        android:id="@+id/batsmanLayout"
+                        layout="@layout/bastma_header_layout">
+
+                    </include>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/scoreRecycleView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/bestman_adapter" />
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/PlayerRunPlaceholder"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="50dp"
+                    android:gravity="center"
+                    android:text="NO DATA"
+                    android:visibility="gone">
+
+                </TextView>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/secondInningHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentLeft="true"
+                            android:layout_toLeftOf="@+id/inningSecondScore"
+                            android:background="@color/white"
+                            android:padding="10dp"
+                            android:text="2nd Inning "
+                            android:textColor="@color/tab_background" />
+
+                        <TextView
+                            android:id="@+id/inningSecondScore"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:background="@color/white"
+                            android:gravity="right"
+                            android:padding="10dp"
+                            android:text="Inning 1"
+                            android:textColor="@color/tab_background" />
+                    </RelativeLayout>
+
+                    <include layout="@layout/bastma_header_layout"></include>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/secondInning"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        tools:listitem="@layout/bestman_adapter" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    android:weightSum="4">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2.2"
+                        android:text="Bastman"
+                        android:textColor="@color/tab_background" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".8"
+                        android:gravity="center"
+                        android:text="Score"
+                        android:textAlignment="center"
+                        android:textColor="@color/tab_background" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight=".8"
+                        android:gravity="center"
+                        android:text="Over"
+                        android:textAlignment="center"
+                        android:textColor="@color/tab_background" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/wicketFallRecycleView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    tools:listitem="@layout/bestman_adapter" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
+</FrameLayout>
