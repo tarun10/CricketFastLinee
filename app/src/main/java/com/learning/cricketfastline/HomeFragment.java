@@ -47,8 +47,8 @@ public class HomeFragment extends Fragment implements RecyclerItemClickEvent {
     private Socket mSocket;
     {
         try {
-            //mSocket = IO.socket("http://node.cricnet.co.in:7001");
-            mSocket = IO.socket("http://node.cricnet.co.in:3026/");
+            mSocket = IO.socket("http://node.cricnet.co.in:7001");
+//            mSocket = IO.socket("http://node.cricnet.co.in:3026/");
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
