@@ -33,6 +33,7 @@ public class HomeFragment extends Fragment implements RecyclerItemClickEvent {
     private HomeFragementViewModel homeFragementViewModel;
     private SpringDotsIndicator dotsIndicator;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
