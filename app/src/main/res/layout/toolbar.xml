@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/yet_background"
+    android:background="@color/topAndBottomBackground"
     android:elevation="4dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -40,7 +40,7 @@
             android:layout_height="31dp"
             android:fontFamily="@font/gotham_light"
             android:gravity="center"
-            android:text="Ads free cricket line"
+            android:text="Cricket fast line"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"

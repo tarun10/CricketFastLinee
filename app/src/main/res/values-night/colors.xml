@@ -5,7 +5,7 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
+    <color name="black">#FFFFFF</color>
     <color name="red">#DF1111</color>
     <color name="white">#ffffff</color>
     <color name="background_theme">#e7f7f7</color>
@@ -14,6 +14,7 @@
     <color name="backgroundTheme">#e7f7f7</color>
     <color name="tab_background">#FFFFFF</color>
     <color name="yet_background">#212121</color>
+    <color name="topAndBottomBackground">#212121</color>
     <color name="dark_header">#4C4A4A</color>
     <color name="notout">#1A3530</color>
     <color name="left_session">#015e9b</color>

@@ -16,7 +16,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:background="@color/yet_background"
+        android:background="@color/topAndBottomBackground"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/buttom_menu">
 

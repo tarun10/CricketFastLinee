@@ -12,8 +12,9 @@
     <color name="text_heading">#114a2d</color>
     <color name="button_selected">#3c566d</color>
     <color name="backgroundTheme">#e7f7f7</color>
-    <color name="tab_background">#108670</color>
+    <color name="tab_background">#ce2117</color>
     <color name="yet_background">#ce2117</color>
+    <color name="topAndBottomBackground">#ce2117</color>
     <color name="dark_header">#114a2d</color>
     <color name="notout">#1A3530</color>
     <color name="left_session">#015e9b</color>
