@@ -40,7 +40,7 @@
             android:layout_height="31dp"
             android:fontFamily="@font/gotham_light"
             android:gravity="center"
-            android:text="Cricket fast line"
+            android:text="@string/app_name"
             android:textColor="@color/white"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"

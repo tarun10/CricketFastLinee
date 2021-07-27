@@ -78,25 +78,37 @@ public class LiveScoreFragment extends Fragment {
             });
         }
     };
-    private Emitter.Listener onConnectionEstb = args -> getActivity().runOnUiThread(new Runnable() {
+
+    private Emitter.Listener onConnectionEstb = new Emitter.Listener() {
         @Override
-        public void run() {
-            if (!isConnected) {
-                isConnected = true;
+        public void call(Object... args) {
+            if (getActivity() != null) {
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (!isConnected) {
+                            isConnected = true;
+                        }
+                        Log.i(TAG, "Socket connection established");
+                    }
+                });
             }
-            Log.i(TAG, "Socket connection established");
         }
-    });
-
-    private Emitter.Listener onDisconnect = args -> getActivity().runOnUiThread(new Runnable() {
+    };
+    private Emitter.Listener onDisconnect = new Emitter.Listener() {
         @Override
-        public void run() {
-            isConnected = false;
-            Log.i(TAG, "Socket is disconnected");
+        public void call(Object... args) {
+            if (getActivity() != null)
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        isConnected = false;
+                        Log.i(TAG, "Socket is disconnected");
 
+                    }
+                });
         }
-    });
-
+    };
     private Emitter.Listener broadcastScore = args -> {
         getActivity().runOnUiThread(new Runnable() {
             @Override
@@ -274,9 +286,9 @@ public class LiveScoreFragment extends Fragment {
         fragmentLiveBinding.currentOver.setText("In " + socketLiveScore.getOversA() + " Overs");
         fragmentLiveBinding.favTeamName.setText(favteam);
 
-       // String[] rates = socketLiveScore.getRateA().substring(0, socketLiveScore.getRateA().indexOf("|")).split("-");
-        fragmentLiveBinding.rateA.setText( socketLiveScore.getRateA());
-        fragmentLiveBinding.rateB.setText( socketLiveScore.getRateB());
+        // String[] rates = socketLiveScore.getRateA().substring(0, socketLiveScore.getRateA().indexOf("|")).split("-");
+        fragmentLiveBinding.rateA.setText(socketLiveScore.getRateA());
+        fragmentLiveBinding.rateB.setText(socketLiveScore.getRateB());
 
 
         fragmentLiveBinding.sessionA.setText(socketLiveScore.getSessionA());
@@ -327,6 +339,7 @@ public class LiveScoreFragment extends Fragment {
 
 
     }
+
     @Override
     public void onResume() {
         super.onResume();
