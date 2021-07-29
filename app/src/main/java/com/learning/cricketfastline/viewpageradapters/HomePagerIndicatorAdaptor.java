@@ -93,7 +93,7 @@ public class HomePagerIndicatorAdaptor extends RecyclerView.Adapter<HomePagerInd
         holder.liveCard.setOnClickListener(view -> {
             itemClickEvent.onClick("live", eventTitleViews.get(position).getMatchId().toString(),
                     (eventTitleViews.get(position).getTeamA() + " vs " + eventTitleViews.get(position).getTeamB()),
-                    eventTitleViews.get(position).getMatchType());
+                    eventTitleViews.get(position).getTeamA());
         });
 
     }
