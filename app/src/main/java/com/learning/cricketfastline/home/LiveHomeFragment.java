@@ -58,6 +58,6 @@ public class LiveHomeFragment extends Fragment implements RecyclerItemClickEvent
                 .putExtra("matchId", matchId)
                 .putExtra("matchType", matchType)
                 .putExtra("title", title)
-                .putExtra("message", message));
+                .putExtra("teamname", message));
     }
 }

@@ -111,7 +111,7 @@ public class LiveRecyclerAdapter extends RecyclerView.Adapter<LiveRecyclerAdapte
         Glide.with(context).load(upcomingEvent.getImgeURL() + upcomingEvent.getTeamAImage()).into(teamAFlag);
         Glide.with(context).load(upcomingEvent.getImgeURL() + upcomingEvent.getTeamBImage()).into(teamBFlag);
         liveCard.setOnClickListener(view -> {
-            itemClickEvent.onClick("live", upcomingEvent.getMatchId().toString(), (upcomingEvent.getTeamA() + " vs " + upcomingEvent.getTeamB()), upcomingEvent.getMatchType());
+            itemClickEvent.onClick("live", upcomingEvent.getMatchId().toString(), (upcomingEvent.getTeamA() + " vs " + upcomingEvent.getTeamB()), upcomingEvent.getTeamA());
         });
         return itemView;
     }

@@ -45,37 +45,24 @@ public class LiveScoreFragment extends Fragment {
     private Socket mSocket;
     private final String TAG = "Socket error";
     private Boolean isConnected = true;
+    private String teamNmae;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        CricketFastLine app = (CricketFastLine) getActivity().getApplication();
-        mSocket = app.getmSocket();
-        if (!mSocket.connected()) {
-            JSONObject mUser = new JSONObject();
-            mSocket.emit("CONNECTION_REQUEST", mUser);
-            mSocket.on("CONNECTION_ESTABLISHED", onConnectionEstb);
-            mSocket.on(Socket.EVENT_DISCONNECT, onDisconnect);
-            mSocket.on(Socket.EVENT_CONNECT_ERROR, onConnectError);
-            mSocket.on(Socket.EVENT_CONNECT_TIMEOUT, onConnectError);
-            mSocket.on("broadcastScore", broadcastScore);
-            mSocket.connect();
-        }
 
-        if (mSocket.connected()) {
-            Toast.makeText(getActivity(), "Socket connected", Toast.LENGTH_SHORT).show();
-        }
     }
 
     private Emitter.Listener onConnectError = new Emitter.Listener() {
         @Override
         public void call(Object... args) {
-            getActivity().runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    Log.i(TAG, "Socket connection error");
-                }
-            });
+            if (getActivity() != null)
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Log.i(TAG, "Socket connection error");
+                    }
+                });
         }
     };
 
@@ -109,15 +96,23 @@ public class LiveScoreFragment extends Fragment {
                 });
         }
     };
-    private Emitter.Listener broadcastScore = args -> {
-        getActivity().runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                SocketLiveScore socketLiveScore = new Gson().fromJson(args[0].toString(), SocketLiveScore.class);
-                getLiveScore(socketLiveScore);
-            }
-        });
+    private Emitter.Listener broadcastScore = new Emitter.Listener() {
+        @Override
+        public void call(Object... args) {
+            if (getActivity() != null)
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        SocketLiveScore socketLiveScore = new Gson().fromJson(args[0].toString(), SocketLiveScore.class);
+                        if (getActivity() != null)
+
+                            if (teamNmae.equalsIgnoreCase(socketLiveScore.getTeamA()) || teamNmae.equalsIgnoreCase(socketLiveScore.getTeamB()))
+                                getLiveScore(socketLiveScore);
+                    }
+                });
+        }
     };
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -152,7 +147,23 @@ public class LiveScoreFragment extends Fragment {
                 fragmentLiveBinding.soundStatus.setText("Sound is on");
             }
         });
+        teamNmae = getActivity().getIntent().getStringExtra("teamname");
+        CricketFastLine app = (CricketFastLine) getActivity().getApplication();
+        mSocket = app.getmSocket();
+        if (!mSocket.connected()) {
+            JSONObject mUser = new JSONObject();
+            mSocket.emit("CONNECTION_REQUEST", mUser);
+            mSocket.on("CONNECTION_ESTABLISHED", onConnectionEstb);
+            mSocket.on(Socket.EVENT_DISCONNECT, onDisconnect);
+            mSocket.on(Socket.EVENT_CONNECT_ERROR, onConnectError);
+            mSocket.on(Socket.EVENT_CONNECT_TIMEOUT, onConnectError);
+            mSocket.on("broadcastScore", broadcastScore);
+            mSocket.connect();
+        }
 
+        if (mSocket.connected()) {
+            Toast.makeText(getActivity(), "Socket connected", Toast.LENGTH_SHORT).show();
+        }
         return view;
     }
 
@@ -343,13 +354,16 @@ public class LiveScoreFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-
+        if (!mSocket.connected()) {
+            mSocket.connect();
+        }
     }
 
     @Override
     public void onPause() {
         super.onPause();
         textToSpeech.stop();
+        mSocket.disconnect();
     }
 
     @Override
