@@ -28,6 +28,7 @@
             android:id="@+id/imageView5"
             android:layout_width="49dp"
             android:layout_height="27dp"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/textView23"
             app:layout_constraintEnd_toStartOf="@+id/textView23"
             app:layout_constraintStart_toStartOf="parent"

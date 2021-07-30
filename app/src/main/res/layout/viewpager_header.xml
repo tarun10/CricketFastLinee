@@ -10,7 +10,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardBackgroundColor="#80114a2d"
+        app:cardBackgroundColor="#80FFFFFF"
         app:cardCornerRadius="10dp"
         app:cardElevation="0dp"
         app:cardUseCompatPadding="true">
@@ -41,7 +41,7 @@
                 android:fontFamily="@font/gotham_medium"
                 android:padding="5dp"
                 android:text="team1"
-                android:textColor="@color/white"
+                android:textColor="@color/homeheadertextcolor"
                 android:textSize="14sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/teamAFlag">
@@ -52,10 +52,10 @@
                 android:id="@+id/teamAscore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/gotham_light"
+                android:fontFamily="@font/gotham_medium"
                 android:padding="5dp"
                 android:text=""
-                android:textColor="@color/white"
+                android:textColor="@color/homeheadertextcolor"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/teamA">
 
@@ -68,7 +68,7 @@
                 android:fontFamily="@font/gotham_medium"
                 android:padding="5dp"
                 android:text="VS"
-                android:textColor="@color/white"
+                android:textColor="@color/homeheadertextcolor"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toStartOf="@+id/teamB"
                 app:layout_constraintStart_toEndOf="@+id/teamA"
@@ -94,7 +94,7 @@
                 android:gravity="end"
                 android:padding="5dp"
                 android:text="team2"
-                android:textColor="@color/white"
+                android:textColor="@color/homeheadertextcolor"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/teamBFlag">
@@ -105,10 +105,10 @@
                 android:id="@+id/teamBscore"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/gotham_light"
+                android:fontFamily="@font/gotham_medium"
                 android:padding="5dp"
-                android:text=""
-                android:textColor="@color/white"
+                android:text="185/6"
+                android:textColor="@color/homeheadertextcolor"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/teamB">
 
@@ -139,7 +139,7 @@
                 android:layout_gravity="center"
                 android:fontFamily="@font/gotham_medium"
                 android:text="0000000"
-                android:textColor="@color/white"
+                android:textColor="@color/homeheadertextcolor"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayoutHeaderSession"
                 app:layout_constraintStart_toStartOf="@+id/constraintLayoutHeaderSession"
                 app:layout_constraintTop_toBottomOf="@+id/favTeamHeader">
@@ -152,7 +152,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/gotham_light"
                 android:text="TextView"
-                android:textColor="@color/white"
+                android:textColor="@color/homeheadertextcolor"
                 app:layout_constraintEnd_toEndOf="@+id/match_over"
                 app:layout_constraintStart_toStartOf="@+id/match_over"
                 app:layout_constraintTop_toBottomOf="@+id/match_over" />
@@ -203,7 +203,7 @@
                 android:id="@+id/favTeamHeader"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/white"
+                android:textColor="@color/homeheadertextcolor"
                 android:textSize="10dp"
                 android:layout_marginTop="5dp"
                 app:layout_constraintEnd_toEndOf="@+id/constraintLayoutHeaderSession"
