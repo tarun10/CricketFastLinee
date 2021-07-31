@@ -136,18 +136,18 @@ public class InfoFragment extends Fragment {
                 LiveScoreDataModel liveScoreDataModel = new Gson().fromJson(liveMatchModels.get(0).getJsondata(), LiveScoreDataModel.class);
                 LiveScoreModelJsonRun liveScoreModelJsonRun = new Gson().fromJson(liveMatchModels.get(0).getJsonruns(), LiveScoreModelJsonRun.class);
                 if (liveScoreDataModel != null && liveScoreDataModel.getJsondata() != null) {
-                    Glide.with(getActivity()).load(liveScoreDataModel.getJsondata().getImgurl() + liveMatchModels.get(0).getTeamAImage()).placeholder(R.drawable.logo_dark).into(team1Image);
-                    Glide.with(getActivity()).load(liveScoreDataModel.getJsondata().getImgurl() + liveMatchModels.get(0).getTeamBImage()).placeholder(R.drawable.logo_dark).into(team2Image);
-                    Glide.with(getActivity()).load(liveScoreDataModel.getJsondata().getImgurl() + liveMatchModels.get(0).getTeamAImage()).placeholder(R.drawable.logo_dark).into(imageView11);
-                    Glide.with(getActivity()).load(liveScoreDataModel.getJsondata().getImgurl() + liveMatchModels.get(0).getTeamBImage()).placeholder(R.drawable.logo_dark).into(imageView12);
+                    Glide.with(getActivity()).load(liveScoreDataModel.getJsondata().getImgurl() + liveScoreDataModel.getJsondata().getTeamABanner()).placeholder(R.drawable.logo_dark).into(team1Image);
+                    Glide.with(getActivity()).load(liveScoreDataModel.getJsondata().getImgurl() + liveScoreDataModel.getJsondata().getTeamBBanner()).placeholder(R.drawable.logo_dark).into(team2Image);
+                    Glide.with(getActivity()).load(liveScoreDataModel.getJsondata().getImgurl() + liveScoreDataModel.getJsondata().getTeamABanner()).placeholder(R.drawable.logo_dark).into(imageView11);
+                    Glide.with(getActivity()).load(liveScoreDataModel.getJsondata().getImgurl() + liveScoreDataModel.getJsondata().getTeamBBanner()).placeholder(R.drawable.logo_dark).into(imageView12);
                 }
                 if (liveScoreModelJsonRun != null && liveScoreModelJsonRun.getJsonruns() != null) {
                     List<String> summary = Arrays.asList(liveScoreModelJsonRun.getJsonruns().getSummary().split("\n"));
                     toss.setText(getToastMessage(summary));
                 }
                 try {
-                    teamAnme = liveMatchModels.get(0).getTeamA();
-                    teamBnme = liveMatchModels.get(0).getTeamB();
+                    teamAnme = liveScoreDataModel.getJsondata().getTeamA();
+                    teamBnme = liveScoreDataModel.getJsondata().getTeamB();
                     teamAIX.setText(teamAnme);
                     teamBIX.setText(teamBnme);
                     team1.setText(teamAnme);
