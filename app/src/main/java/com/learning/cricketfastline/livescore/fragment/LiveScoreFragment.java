@@ -147,7 +147,7 @@ public class LiveScoreFragment extends Fragment {
                 fragmentLiveBinding.soundStatus.setText("Sound is on");
             }
         });
-        teamNmae = getActivity().getIntent().getStringExtra("teamname");
+        teamNmae = getActivity().getIntent().getStringExtra("message");
         CricketFastLine app = (CricketFastLine) getActivity().getApplication();
         mSocket = app.getmSocket();
         if (!mSocket.connected()) {

@@ -82,7 +82,7 @@ public class InfoFragment extends Fragment {
         teamBrecyclerview = view.findViewById(R.id.teamBrecyclerview);
         teamARecyclerviewlayout = view.findViewById(R.id.teamARecyclerviewlayout);
         teamBRecyclerviewlayout = view.findViewById(R.id.teamBRecyclerviewlayout);
-        if (scoreInfo.get("matchId").equalsIgnoreCase("0")) {
+        if (scoreInfo.size()==0) {
             mainLayout.setVisibility(View.GONE);
             placeHolder.setVisibility(View.VISIBLE);
         } else {
@@ -146,8 +146,13 @@ public class InfoFragment extends Fragment {
                     toss.setText(getToastMessage(summary));
                 }
                 try {
-                    teamAnme = liveScoreDataModel.getJsondata().getTeamA();
-                    teamBnme = liveScoreDataModel.getJsondata().getTeamB();
+//<<<<<<< HEAD
+//                    teamAnme = liveScoreDataModel.getJsondata().getTeamA();
+//                    teamBnme = liveScoreDataModel.getJsondata().getTeamB();
+//=======
+                    teamAnme = liveMatchModels.get(0).getTeamA()!=null?liveMatchModels.get(0).getTeamA():liveScoreDataModel.getJsondata().getTeamA();
+                    teamBnme = liveMatchModels.get(0).getTeamB()!=null?liveMatchModels.get(0).getTeamB():liveScoreDataModel.getJsondata().getTeamB();
+//>>>>>>> 9898ce0395bd76cfcd485a9004b2cca19055c0ca
                     teamAIX.setText(teamAnme);
                     teamBIX.setText(teamBnme);
                     team1.setText(teamAnme);
@@ -168,7 +173,7 @@ public class InfoFragment extends Fragment {
     private String getToastMessage(List list) {
         String message = "";
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).toString().contains("toss")) {
+            if (list.get(i).toString().contains("toss") || list.get(i).toString().contains("Toss")) {
                 message = list.get(i).toString();
             }
         }

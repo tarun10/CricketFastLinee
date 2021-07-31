@@ -62,12 +62,11 @@
 
                 <TextView
                     android:id="@+id/team1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:text=""
+                    android:maxLines="2"
                     android:textColor="@color/white"
+                    android:paddingRight="8dp"
                     app:layout_constraintBottom_toBottomOf="@+id/team1Image"
                     app:layout_constraintStart_toEndOf="@+id/team1Image"
                     app:layout_constraintTop_toTopOf="@+id/team1Image" />
@@ -86,11 +85,11 @@
 
                 <TextView
                     android:id="@+id/team2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp"
-                    android:text=""
+                    android:maxLines="2"
+                    android:paddingLeft="8dp"
+                    android:textAlignment="textEnd"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="@+id/team2Image"
                     app:layout_constraintEnd_toStartOf="@+id/team2Image"
