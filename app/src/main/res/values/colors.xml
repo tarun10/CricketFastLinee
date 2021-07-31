@@ -8,6 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="red">#DF1111</color>
     <color name="white">#ffffff</color>
+    <color name="homeheadertextcolor">#000000</color>
     <color name="background_theme">#e7f7f7</color>
     <color name="text_heading">#114a2d</color>
     <color name="button_selected">#3c566d</color>
