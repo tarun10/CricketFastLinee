@@ -83,7 +83,7 @@ public class HomeFragment extends Fragment implements RecyclerItemClickEvent {
                 .putExtra("matchId", matchId)
                 .putExtra("matchType", matchType)
                 .putExtra("title", title)
-                .putExtra("teamname", message));
+                .putExtra("message", message));
     }
 
     @Override

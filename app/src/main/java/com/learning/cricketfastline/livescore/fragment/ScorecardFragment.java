@@ -67,7 +67,7 @@ public class ScorecardFragment extends Fragment {
         scoreCardViewModel = new ViewModelProvider(this).get(ScoreCardViewModel.class);
         HashMap<String, String> scoreInfo = new HashMap<>();
         scoreInfo.put("MatchId", getActivity().getIntent().getStringExtra("matchId"));
-        matchType=getActivity().getIntent().getStringExtra("message");
+        matchType=getActivity().getIntent().getStringExtra("matchType");
         if(matchType.equalsIgnoreCase("Test")){
             secondInningHeader.setVisibility(View.VISIBLE);
             firstInningHeader.setVisibility(View.VISIBLE);

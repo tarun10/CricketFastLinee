@@ -82,12 +82,13 @@ public class InfoFragment extends Fragment {
         teamBrecyclerview = view.findViewById(R.id.teamBrecyclerview);
         teamARecyclerviewlayout = view.findViewById(R.id.teamARecyclerviewlayout);
         teamBRecyclerviewlayout = view.findViewById(R.id.teamBRecyclerviewlayout);
-        if (scoreInfo.get("matchId").equalsIgnoreCase("0")) {
+        if (scoreInfo.size()==0) {
             mainLayout.setVisibility(View.GONE);
             placeHolder.setVisibility(View.VISIBLE);
         } else {
             placeHolder.setVisibility(View.GONE);
             getInfoData(scoreInfo);
+            getLiveDataInfo(scoreInfo);
 
         }
 
@@ -146,8 +147,8 @@ public class InfoFragment extends Fragment {
                     toss.setText(getToastMessage(summary));
                 }
                 try {
-                    teamAnme = liveMatchModels.get(0).getTeamA();
-                    teamBnme = liveMatchModels.get(0).getTeamB();
+                    teamAnme = liveMatchModels.get(0).getTeamA()!=null?liveMatchModels.get(0).getTeamA():liveScoreDataModel.getJsondata().getTeamA();
+                    teamBnme = liveMatchModels.get(0).getTeamB()!=null?liveMatchModels.get(0).getTeamB():liveScoreDataModel.getJsondata().getTeamB();
                     teamAIX.setText(teamAnme);
                     teamBIX.setText(teamBnme);
                     team1.setText(teamAnme);
@@ -155,7 +156,6 @@ public class InfoFragment extends Fragment {
                     seriesName.setText(liveMatchModels.get(0).getVenue());
                     match.setText(liveMatchModels.get(0).getTitle());
                     dateTime.setText(liveMatchModels.get(0).getMatchDate());
-                    getLiveDataInfo(scoreInfo);
                 } catch (Exception e) {
                 }
             } else {
@@ -168,7 +168,7 @@ public class InfoFragment extends Fragment {
     private String getToastMessage(List list) {
         String message = "";
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).toString().contains("toss")) {
+            if (list.get(i).toString().contains("toss") || list.get(i).toString().contains("Toss")) {
                 message = list.get(i).toString();
             }
         }
