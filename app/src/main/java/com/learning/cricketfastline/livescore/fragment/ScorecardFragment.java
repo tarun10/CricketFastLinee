@@ -150,10 +150,12 @@ public class ScorecardFragment extends Fragment {
         scoreRecycleView.setAdapter(scoreBastmanAdapter);
         seccondInningAdapter = new ScoreBastmanAdapter(teamAPlayersSecondInning, getActivity());
         secondInning.setAdapter(seccondInningAdapter);
-        inningFirstScore.setText(setRuns(teamAPlayers.get(0).getTeamRuns()));
-        if (teamAPlayersSecondInning.size() > 0)
-            inningSecondScore.setText(setRuns(teamAPlayersSecondInning.get(0).getTeamRuns()));
-        else inningSecondScore.setText("0");
+        if (teamAPlayers.size() != 0) {
+            inningFirstScore.setText(setRuns(teamAPlayers.get(0).getTeamRuns()));
+            if (teamAPlayersSecondInning.size() > 0)
+                inningSecondScore.setText(setRuns(teamAPlayersSecondInning.get(0).getTeamRuns()));
+            else inningSecondScore.setText("0");
+        }
     }
 
     private void setSecondIng() {
@@ -161,10 +163,12 @@ public class ScorecardFragment extends Fragment {
         scoreRecycleView.setAdapter(scoreBastmanAdapter);
         seccondInningAdapter = new ScoreBastmanAdapter(teamBPlayersSecondInning, getActivity());
         secondInning.setAdapter(seccondInningAdapter);
-        inningFirstScore.setText(setRuns(teamBPlayers.get(0).getTeamRuns()));
-        if (teamBPlayersSecondInning.size() > 0)
-            inningSecondScore.setText(setRuns(teamBPlayersSecondInning.get(0).getTeamRuns()));
-        else inningSecondScore.setText("0");
+        if (teamBPlayers.size() != 0) {
+            inningFirstScore.setText(setRuns(teamBPlayers.get(0).getTeamRuns()));
+            if (teamBPlayersSecondInning.size() > 0)
+                inningSecondScore.setText(setRuns(teamBPlayersSecondInning.get(0).getTeamRuns()));
+            else inningSecondScore.setText("0");
+        }
     }
 
     private String setRuns(String teamRuns) {
