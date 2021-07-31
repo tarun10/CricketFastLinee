@@ -88,7 +88,6 @@ public class InfoFragment extends Fragment {
         } else {
             placeHolder.setVisibility(View.GONE);
             getInfoData(scoreInfo);
-            getLiveDataInfo(scoreInfo);
 
         }
 
@@ -156,6 +155,7 @@ public class InfoFragment extends Fragment {
                     seriesName.setText(liveMatchModels.get(0).getVenue());
                     match.setText(liveMatchModels.get(0).getTitle());
                     dateTime.setText(liveMatchModels.get(0).getMatchDate());
+                    getLiveDataInfo(scoreInfo);
                 } catch (Exception e) {
                 }
             } else {
