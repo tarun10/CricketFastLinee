@@ -46,56 +46,63 @@ public class HomePagerIndicatorAdaptor extends RecyclerView.Adapter<HomePagerInd
 
     @Override
     public void onBindViewHolder(@NonNull HeaderView holder, int position) {
-        LiveScoreDataModel liveScoreDataModel = new Gson().fromJson(eventTitleViews.get(position).getJsondata(), LiveScoreDataModel.class);
-        LiveScoreModelJsonRun liveScoreModelJsonRun = new Gson().fromJson(eventTitleViews.get(position).getJsonruns(), LiveScoreModelJsonRun.class);
-
-        if (eventTitleViews.get(position).getMatchType().equalsIgnoreCase("test")) {
-            holder.constraintLayoutHeaderSession.setVisibility(View.INVISIBLE);
-            if (liveScoreModelJsonRun != null && liveScoreModelJsonRun.getJsonruns() != null) {
-                List<String> summary = Arrays.asList(liveScoreModelJsonRun.getJsonruns().getSummary().split("\n"));
-                holder.favTeamHeader.setText(getDay(summary));
-            }
+        if (eventTitleViews.get(position).getTitle().equals("adsbanner")) {
+            holder.adsframe.setVisibility(View.VISIBLE);
+            holder.liveCard.setVisibility(View.GONE);
         } else {
+            holder.adsframe.setVisibility(View.GONE);
+            holder.liveCard.setVisibility(View.VISIBLE);
+
+            LiveScoreDataModel liveScoreDataModel = new Gson().fromJson(eventTitleViews.get(position).getJsondata(), LiveScoreDataModel.class);
+            LiveScoreModelJsonRun liveScoreModelJsonRun = new Gson().fromJson(eventTitleViews.get(position).getJsonruns(), LiveScoreModelJsonRun.class);
+
+            if (eventTitleViews.get(position).getMatchType().equalsIgnoreCase("test")) {
+                holder.constraintLayoutHeaderSession.setVisibility(View.INVISIBLE);
+                if (liveScoreModelJsonRun != null && liveScoreModelJsonRun.getJsonruns() != null) {
+                    List<String> summary = Arrays.asList(liveScoreModelJsonRun.getJsonruns().getSummary().split("\n"));
+                    holder.favTeamHeader.setText(getDay(summary));
+                }
+            } else {
+                if (liveScoreDataModel != null && liveScoreDataModel.getJsondata() != null) {
+                    String favteam = liveScoreDataModel.getJsondata().getRateA().substring(liveScoreDataModel.getJsondata().getRateA().lastIndexOf("|") + 1);
+                    holder.favTeamHeader.setText("Fav - " + favteam);
+                    String[] rates = liveScoreDataModel.getJsondata().getRateA().substring(0, liveScoreDataModel.getJsondata().getRateA().indexOf("|")).split("-");
+                    holder.rateATextView.setText(rates[0]);
+                    holder.rateBTextView.setText(rates[1]);
+                }
+            }
             if (liveScoreDataModel != null && liveScoreDataModel.getJsondata() != null) {
-                String favteam = liveScoreDataModel.getJsondata().getRateA().substring(liveScoreDataModel.getJsondata().getRateA().lastIndexOf("|") + 1);
-                holder.favTeamHeader.setText("Fav - " + favteam);
-                String[] rates = liveScoreDataModel.getJsondata().getRateA().substring(0, liveScoreDataModel.getJsondata().getRateA().indexOf("|")).split("-");
-                holder.rateATextView.setText(rates[0]);
-                holder.rateBTextView.setText(rates[1]);
+                holder.match_over.setText("Over (" + liveScoreDataModel.getJsondata().getOversA() + ")");
+                Glide.with(context).load(liveScoreDataModel.getJsondata().getImgurl() + liveScoreDataModel.getJsondata().getTeamABanner()).circleCrop().into(holder.teamAFlag);
+                Glide.with(context).load(liveScoreDataModel.getJsondata().getImgurl() + liveScoreDataModel.getJsondata().getTeamBBanner()).circleCrop().into(holder.teamBFlag);
+            } else {
+                Glide.with(context).load(eventTitleViews.get(position).getImgeURL() + eventTitleViews.get(position).getTeamAImage()).circleCrop().into(holder.teamAFlag);
+                Glide.with(context).load(eventTitleViews.get(position).getImgeURL() + eventTitleViews.get(position).getTeamBImage()).circleCrop().into(holder.teamBFlag);
             }
-        }
-        if (liveScoreDataModel != null && liveScoreDataModel.getJsondata() != null) {
-            holder.match_over.setText("Over (" + liveScoreDataModel.getJsondata().getOversA() + ")");
-            Glide.with(context).load(liveScoreDataModel.getJsondata().getImgurl() + liveScoreDataModel.getJsondata().getTeamABanner()).circleCrop().into(holder.teamAFlag);
-            Glide.with(context).load(liveScoreDataModel.getJsondata().getImgurl() + liveScoreDataModel.getJsondata().getTeamBBanner()).circleCrop().into(holder.teamBFlag);
-        } else {
-            Glide.with(context).load(eventTitleViews.get(position).getImgeURL() + eventTitleViews.get(position).getTeamAImage()).circleCrop().into(holder.teamAFlag);
-            Glide.with(context).load(eventTitleViews.get(position).getImgeURL() + eventTitleViews.get(position).getTeamBImage()).circleCrop().into(holder.teamBFlag);
-        }
 
-        holder.teamAscore.setText(liveScoreDataModel != null ? liveScoreDataModel.getJsondata().getWicketA() : "");
-        holder.teamBscore.setText(liveScoreDataModel != null ? liveScoreDataModel.getJsondata().getWicketB() : "");
-        holder.teamA.setText(eventTitleViews.get(position).getTeamA());
-        holder.teamB.setText(eventTitleViews.get(position).getTeamB());
-        holder.gameName.setText(eventTitleViews.get(position).getTitle());
+            holder.teamAscore.setText(liveScoreDataModel != null ? liveScoreDataModel.getJsondata().getWicketA() : "");
+            holder.teamBscore.setText(liveScoreDataModel != null ? liveScoreDataModel.getJsondata().getWicketB() : "");
+            holder.teamA.setText(eventTitleViews.get(position).getTeamA());
+            holder.teamB.setText(eventTitleViews.get(position).getTeamB());
+            holder.gameName.setText(eventTitleViews.get(position).getTitle());
 
-        if (liveScoreDataModel != null && !liveScoreDataModel.getJsondata().getBowler().equals("0")) {
-            holder.match_status.setText("LIVE");
-            holder.match_status.setTextColor(ContextCompat.getColor(context, R.color.red));
-        } else if (!eventTitleViews.get(position).getResult().equals("")) {
-            holder.match_status.setText("Finished");
-            holder.match_over.setText(eventTitleViews.get(position).getResult());
-            //holder.match_status.setTextColor(ContextCompat.getColor(context, R.color.left_session));
-        } else {
-            holder.match_status.setText("Upcoming");
-            holder.match_over.setText(eventTitleViews.get(position).getMatchtime());
+            if (liveScoreDataModel != null && !liveScoreDataModel.getJsondata().getBowler().equals("0")) {
+                holder.match_status.setText("LIVE");
+                holder.match_status.setTextColor(ContextCompat.getColor(context, R.color.red));
+            } else if (!eventTitleViews.get(position).getResult().equals("")) {
+                holder.match_status.setText("Finished");
+                holder.match_over.setText(eventTitleViews.get(position).getResult());
+                //holder.match_status.setTextColor(ContextCompat.getColor(context, R.color.left_session));
+            } else {
+                holder.match_status.setText("Upcoming");
+                holder.match_over.setText(eventTitleViews.get(position).getMatchtime());
+            }
+            holder.liveCard.setOnClickListener(view -> {
+                itemClickEvent.onClick(eventTitleViews.get(position).getMatchType(), eventTitleViews.get(position).getMatchId().toString(),
+                        (eventTitleViews.get(position).getTeamA() + " vs " + eventTitleViews.get(position).getTeamB()),
+                        eventTitleViews.get(position).getTeamA());
+            });
         }
-        holder.liveCard.setOnClickListener(view -> {
-            itemClickEvent.onClick(eventTitleViews.get(position).getMatchType(), eventTitleViews.get(position).getMatchId().toString(),
-                    (eventTitleViews.get(position).getTeamA() + " vs " + eventTitleViews.get(position).getTeamB()),
-                    eventTitleViews.get(position).getTeamA());
-        });
-
     }
 
     @Override
@@ -105,7 +112,7 @@ public class HomePagerIndicatorAdaptor extends RecyclerView.Adapter<HomePagerInd
 
     public class HeaderView extends RecyclerView.ViewHolder {
         TextView teamA, teamB, match_status, teamAscore, teamBscore, match_over, rateATextView, rateBTextView, gameName, favTeamHeader;
-        ImageView teamAFlag, teamBFlag;
+        ImageView teamAFlag, teamBFlag, adsframe;
         ConstraintLayout liveCard, constraintLayoutHeaderSession;
 
         public HeaderView(@NonNull View itemView) {
@@ -124,6 +131,7 @@ public class HomePagerIndicatorAdaptor extends RecyclerView.Adapter<HomePagerInd
             rateBTextView = itemView.findViewById(R.id.rateBTextView);
             gameName = itemView.findViewById(R.id.gameName);
             favTeamHeader = itemView.findViewById(R.id.favTeamHeader);
+            adsframe = itemView.findViewById(R.id.adsframe);
             constraintLayoutHeaderSession = itemView.findViewById(R.id.constraintLayoutHeaderSession);
 
         }

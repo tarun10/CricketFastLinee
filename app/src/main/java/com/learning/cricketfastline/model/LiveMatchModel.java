@@ -85,6 +85,11 @@ public class LiveMatchModel {
     @Expose
     private String TestTeamARate2;
 
+    public LiveMatchModel(String title, String imgeURL) {
+        this.title=title;
+        this.imgeURL=imgeURL;
+    }
+
     public String getTestTeamA() {
         return TestTeamA;
     }

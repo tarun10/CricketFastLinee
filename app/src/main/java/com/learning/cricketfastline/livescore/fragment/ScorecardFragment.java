@@ -67,9 +67,11 @@ public class ScorecardFragment extends Fragment {
         scoreCardViewModel = new ViewModelProvider(this).get(ScoreCardViewModel.class);
         HashMap<String, String> scoreInfo = new HashMap<>();
         scoreInfo.put("MatchId", getActivity().getIntent().getStringExtra("matchId"));
+        String title[]=getActivity().getIntent().getStringExtra("title").split("vs");
         matchType=getActivity().getIntent().getStringExtra("matchType");
+        tablayoutScorecard.getTabAt(0).setText(title[0]);
+        tablayoutScorecard.getTabAt(1).setText(title[1]);
         if(matchType.equalsIgnoreCase("Test")){
-            secondInningHeader.setVisibility(View.VISIBLE);
             firstInningHeader.setVisibility(View.VISIBLE);
         }
 
@@ -92,18 +94,20 @@ public class ScorecardFragment extends Fragment {
                         if (players.get(i).getTeamSide().equalsIgnoreCase("Team A")) {
                             if (players.get(i).getInning().equals(1))
                                 teamAPlayers.add(players.get(i));
-                            else
+                            else {
+                                secondInningHeader.setVisibility(View.VISIBLE);
                                 teamAPlayersSecondInning.add(players.get(i));
+                            }
                         } else {
                             if (players.get(i).getInning().equals(1)) {
                                 teamBPlayers.add(players.get(i));
                             } else {
+                                secondInningHeader.setVisibility(View.VISIBLE);
                                 teamBPlayersSecondInning.add(players.get(i));
                             }
                         }
                     }
-                    tablayoutScorecard.getTabAt(0).setText(teamAPlayers.get(0).getTeamName());
-                    tablayoutScorecard.getTabAt(1).setText(teamBPlayers.get(0).getTeamName());
+
                     setFirstIng();
 
 

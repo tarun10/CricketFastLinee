@@ -46,6 +46,7 @@ public class LiveScoreFragment extends Fragment {
     private final String TAG = "Socket error";
     private Boolean isConnected = true;
     private String teamNmae;
+    private String matchType;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -120,6 +121,7 @@ public class LiveScoreFragment extends Fragment {
         fragmentLiveBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_live, container, false);
         View view = fragmentLiveBinding.getRoot();
         scoreInfo.put("matchId", getActivity().getIntent().getStringExtra("matchId"));
+        matchType=getActivity().getIntent().getStringExtra("matchType");
         textToSpeech = new TextToSpeech(getActivity(), status -> {
             if (status == TextToSpeech.SUCCESS) {
                 textToSpeech.setLanguage(Locale.US);
@@ -187,7 +189,7 @@ public class LiveScoreFragment extends Fragment {
                 //fragmentLiveBinding.matchInfo.setText(getActivity().getIntent().getStringExtra("message"));
 
                 if (players.contains(players.get(0).getMatchtype())) {
-                    if (players.get(0).getMatchtype().equalsIgnoreCase("test")) {
+                    if (matchType.equalsIgnoreCase("test")) {
                         fragmentLiveBinding.testSessionLayout.setVisibility(View.VISIBLE);
                         fragmentLiveBinding.testTeamA.setText(players.get(0).getTestTeamA());
                         fragmentLiveBinding.testTeamARate1.setText(players.get(0).getTestTeamARate1());
@@ -211,7 +213,7 @@ public class LiveScoreFragment extends Fragment {
 
 
         if (socketLiveScore.getMatchtype() != null) {
-            if (socketLiveScore.getMatchtype().equalsIgnoreCase("Test")) {
+            if (matchType.equalsIgnoreCase("Test")) {
                 fragmentLiveBinding.testSessionLayout.setVisibility(View.VISIBLE);
                 fragmentLiveBinding.sessionLayout.setVisibility(View.GONE);
                 fragmentLiveBinding.testTeamA.setText(socketLiveScore.getTestTeamA());

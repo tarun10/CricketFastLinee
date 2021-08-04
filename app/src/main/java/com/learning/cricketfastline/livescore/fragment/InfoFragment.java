@@ -146,13 +146,8 @@ public class InfoFragment extends Fragment {
                     toss.setText(getToastMessage(summary));
                 }
                 try {
-//<<<<<<< HEAD
-//                    teamAnme = liveScoreDataModel.getJsondata().getTeamA();
-//                    teamBnme = liveScoreDataModel.getJsondata().getTeamB();
-//=======
                     teamAnme = liveMatchModels.get(0).getTeamA()!=null?liveMatchModels.get(0).getTeamA():liveScoreDataModel.getJsondata().getTeamA();
                     teamBnme = liveMatchModels.get(0).getTeamB()!=null?liveMatchModels.get(0).getTeamB():liveScoreDataModel.getJsondata().getTeamB();
-//>>>>>>> 9898ce0395bd76cfcd485a9004b2cca19055c0ca
                     teamAIX.setText(teamAnme);
                     teamBIX.setText(teamBnme);
                     team1.setText(teamAnme);

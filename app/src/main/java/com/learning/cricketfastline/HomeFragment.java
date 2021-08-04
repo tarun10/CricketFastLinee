@@ -69,6 +69,8 @@ public class HomeFragment extends Fragment implements RecyclerItemClickEvent {
         homeFragementViewModel.getUpComingData().observeForever(new Observer<ArrayList<LiveMatchModel>>() {
             @Override
             public void onChanged(ArrayList<LiveMatchModel> eventTitleViews) {
+                if(!eventTitleViews.get(1).getTitle().contains("adsbanner"))
+                eventTitleViews.add(1,new LiveMatchModel("adsbanner","drawable://" + R.drawable.adsbanner));
                 HomePagerIndicatorAdaptor homePagerIndicatorAdaptor = new HomePagerIndicatorAdaptor(eventTitleViews, getContext(), HomeFragment.this::onClick);
                 headerViewPager.setAdapter(homePagerIndicatorAdaptor);
                 dotsIndicator.setViewPager2(headerViewPager);
