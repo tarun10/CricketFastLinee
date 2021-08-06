@@ -11,7 +11,7 @@
         layout="@layout/toolbar" />
 
     <ImageView
-        android:id="@+id/textView2"
+        android:id="@+id/adsframe"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:scaleType="fitXY"
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@color/main_background"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/adsframe"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">

@@ -1,7 +1,11 @@
  package com.learning.cricketfastline;
 
+ import android.content.Intent;
+ import android.net.Uri;
  import android.os.Bundle;
  import android.view.MenuItem;
+ import android.view.View;
+ import android.widget.ImageView;
 
  import androidx.annotation.NonNull;
  import androidx.appcompat.app.AppCompatActivity;
@@ -10,12 +14,14 @@
  import androidx.navigation.NavController;
 
  import com.google.android.material.bottomnavigation.BottomNavigationView;
+ import com.learning.cricketfastline.utility.constantfiles.ConstantLinks;
 
  public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     NavController navController;
     Toolbar toolbar;
+    private ImageView adsframe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,12 +33,19 @@
 
     private void init() {
 
+        adsframe = findViewById(R.id.adsframe);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(listener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_conainer, new HomeFragment()).commit();
         toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
+
+        adsframe.setOnClickListener(view -> {
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(ConstantLinks.whatsapplink));
+            startActivity(i);
+        });
     }
 
 

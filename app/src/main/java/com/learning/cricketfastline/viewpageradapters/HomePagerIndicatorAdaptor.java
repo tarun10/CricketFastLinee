@@ -1,6 +1,8 @@
 package com.learning.cricketfastline.viewpageradapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import com.learning.cricketfastline.R;
 import com.learning.cricketfastline.model.LiveMatchModel;
 import com.learning.cricketfastline.model.livejsondata.LiveScoreDataModel;
 import com.learning.cricketfastline.model.livejsondata.LiveScoreModelJsonRun;
+import com.learning.cricketfastline.utility.constantfiles.ConstantLinks;
 import com.learning.cricketfastline.utility.constantfiles.RecyclerItemClickEvent;
 
 import java.util.ArrayList;
@@ -30,6 +33,7 @@ public class HomePagerIndicatorAdaptor extends RecyclerView.Adapter<HomePagerInd
     private ArrayList<LiveMatchModel> eventTitleViews;
     private Context context;
     private RecyclerItemClickEvent itemClickEvent;
+
 
     public HomePagerIndicatorAdaptor(ArrayList<LiveMatchModel> eventTitleViews, Context context, RecyclerItemClickEvent itemClickEvent) {
         this.eventTitleViews = eventTitleViews;
@@ -49,6 +53,14 @@ public class HomePagerIndicatorAdaptor extends RecyclerView.Adapter<HomePagerInd
         if (eventTitleViews.get(position).getTitle().equals("adsbanner")) {
             holder.adsframe.setVisibility(View.VISIBLE);
             holder.liveCard.setVisibility(View.GONE);
+            holder.adsframe.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+                    i.setData(Uri.parse(ConstantLinks.whatsapplink));
+                    context.startActivity(i);
+                }
+            });
         } else {
             holder.adsframe.setVisibility(View.GONE);
             holder.liveCard.setVisibility(View.VISIBLE);
