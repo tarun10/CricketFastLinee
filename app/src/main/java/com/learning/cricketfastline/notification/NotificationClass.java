@@ -22,7 +22,7 @@ import com.learning.cricketfastline.R;
 import com.learning.cricketfastline.SplashActivity;
 
 public class NotificationClass extends FirebaseMessagingService {
-    public static final String CHANNEL_ID = "free.cricket";
+    public static final String CHANNEL_ID = "fastline.cricket";
     public static final String TAG = "NotificationClass";
     NotificationManager mNotificationManager;
 
@@ -38,6 +38,8 @@ public class NotificationClass extends FirebaseMessagingService {
     @Override
     public void onNewToken(@NonNull String s) {
         super.onNewToken(s);
+
+        Log.d("notification token",s);
     }
 
     public void displayNotification(RemoteMessage remoteMessage) {
