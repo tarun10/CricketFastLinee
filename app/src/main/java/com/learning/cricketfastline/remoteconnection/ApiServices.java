@@ -8,6 +8,7 @@ import com.learning.cricketfastline.model.news.NewsModelApi;
 import com.learning.cricketfastline.model.players.AllPlayersInfo;
 import com.learning.cricketfastline.model.seriesdata.LiveSeries;
 import com.learning.cricketfastline.model.seriesdata.PointTableModel;
+import com.learning.cricketfastline.model.stats.MatchStats;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -61,6 +62,11 @@ public class ApiServices {
 
     public static Observable<PointTableModel> getPointTable(HashMap<String, String> seriesinfo) {
         return RetrofitConnection.callApi().getPontTable(seriesinfo).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .timeout(10, TimeUnit.SECONDS);
+    }
+    public static Observable<MatchStats> getMatchStats(HashMap<String, String> seriesinfo) {
+        return RetrofitConnection.callApi().getMatchStats(seriesinfo).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .timeout(10, TimeUnit.SECONDS);
     }

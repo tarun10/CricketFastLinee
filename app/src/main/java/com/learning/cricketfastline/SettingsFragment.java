@@ -49,14 +49,14 @@ public class SettingsFragment extends Fragment {
         fragmentSettingsBinding.shareApp.setOnClickListener(view3 -> {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.cricket.AdFreeCricketLiveLine");
+            sendIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.learning.cricketfastline&hl=en_IN&gl=US");
             sendIntent.setType("text/plain");
             Intent shareIntent = Intent.createChooser(sendIntent, null);
             startActivity(shareIntent);
 
         });
         fragmentSettingsBinding.rateUsView.setOnClickListener(view1 -> {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.cricket.AdFreeCricketLiveLine")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.learning.cricketfastline")));
         });
         fragmentSettingsBinding.reportText15.setOnClickListener(view1 -> {
             try {

@@ -1,5 +1,7 @@
 plugins {
+    id 'com.google.gms.google-services'
     id 'com.android.application'
+    id 'com.google.firebase.crashlytics'
 }
 
 android {
@@ -77,8 +79,11 @@ dependencies {
     implementation 'com.google.android.play:core:1.10.0'
     implementation 'com.android.support:multidex:2.0.1'
 
-    implementation ('io.socket:socket.io-client:0.8.3') {
+    implementation('io.socket:socket.io-client:0.8.3') {
         exclude group: 'org.json', module: 'json'
     }
 
+}
+repositories {
+    mavenCentral()
 }
