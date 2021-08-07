@@ -7,6 +7,7 @@ import com.learning.cricketfastline.model.MatchPojo;
 import com.learning.cricketfastline.model.players.AllPlayersInfo;
 import com.learning.cricketfastline.model.seriesdata.LiveSeries;
 import com.learning.cricketfastline.model.seriesdata.PointTableModel;
+import com.learning.cricketfastline.model.stats.MatchStats;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -47,6 +48,7 @@ public interface ApiService {
     @POST("MatchOdds")
     Observable<MatchOddsModel> GetMatchOdds(@Body HashMap<String, String> stringStringHashMap);
 
-
+    @POST("MatchStats")
+    Observable<MatchStats> getMatchStats(@Body HashMap<String, String> stringStringHashMap);
 
 }

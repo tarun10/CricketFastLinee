@@ -33,7 +33,7 @@ public class HomePagerIndicatorAdaptor extends RecyclerView.Adapter<HomePagerInd
     private ArrayList<LiveMatchModel> eventTitleViews;
     private Context context;
     private RecyclerItemClickEvent itemClickEvent;
-
+    private String teamAName, teamBname;
 
     public HomePagerIndicatorAdaptor(ArrayList<LiveMatchModel> eventTitleViews, Context context, RecyclerItemClickEvent itemClickEvent) {
         this.eventTitleViews = eventTitleViews;
@@ -84,18 +84,24 @@ public class HomePagerIndicatorAdaptor extends RecyclerView.Adapter<HomePagerInd
                 }
             }
             if (liveScoreDataModel != null && liveScoreDataModel.getJsondata() != null) {
+                teamAName=liveScoreDataModel.getJsondata().getTeamA();
+                teamBname=liveScoreDataModel.getJsondata().getTeamB();
                 holder.match_over.setText("Over (" + liveScoreDataModel.getJsondata().getOversA() + ")");
                 Glide.with(context).load(liveScoreDataModel.getJsondata().getImgurl() + liveScoreDataModel.getJsondata().getTeamABanner()).circleCrop().into(holder.teamAFlag);
                 Glide.with(context).load(liveScoreDataModel.getJsondata().getImgurl() + liveScoreDataModel.getJsondata().getTeamBBanner()).circleCrop().into(holder.teamBFlag);
             } else {
                 Glide.with(context).load(eventTitleViews.get(position).getImgeURL() + eventTitleViews.get(position).getTeamAImage()).circleCrop().into(holder.teamAFlag);
                 Glide.with(context).load(eventTitleViews.get(position).getImgeURL() + eventTitleViews.get(position).getTeamBImage()).circleCrop().into(holder.teamBFlag);
+                teamAName=eventTitleViews.get(position).getTeamA();
+                teamBname=eventTitleViews.get(position).getTeamB();
             }
 
             holder.teamAscore.setText(liveScoreDataModel != null ? liveScoreDataModel.getJsondata().getWicketA() : "");
             holder.teamBscore.setText(liveScoreDataModel != null ? liveScoreDataModel.getJsondata().getWicketB() : "");
-            holder.teamA.setText(eventTitleViews.get(position).getTeamA());
-            holder.teamB.setText(eventTitleViews.get(position).getTeamB());
+
+
+            holder.teamA.setText(teamAName);
+            holder.teamB.setText(teamBname);
             holder.gameName.setText(eventTitleViews.get(position).getTitle());
 
             if (liveScoreDataModel != null && !liveScoreDataModel.getJsondata().getBowler().equals("0")) {

@@ -107,7 +107,8 @@ public class ScorecardFragment extends Fragment {
                             }
                         }
                     }
-
+                    tablayoutScorecard.getTabAt(0).setText(teamAPlayers.get(0).getTeamName());
+                    tablayoutScorecard.getTabAt(1).setText(teamBPlayers.get(0).getTeamName());
                     setFirstIng();
 
 

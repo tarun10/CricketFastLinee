@@ -10,6 +10,7 @@ import com.learning.cricketfastline.home.viewmodel.Matchst;
 import com.learning.cricketfastline.model.LiveMatchModel;
 import com.learning.cricketfastline.model.players.AllPlayersInfo;
 import com.learning.cricketfastline.model.players.Players;
+import com.learning.cricketfastline.model.stats.MatchStats;
 import com.learning.cricketfastline.remoteconnection.ApiServices;
 
 import java.util.ArrayList;
@@ -26,6 +27,7 @@ public class LiveScoreModel extends ViewModel {
     public Disposable disposable;
     private MutableLiveData<ArrayList<Players>> arrayListMutableLiveData = new MutableLiveData<>();
     private MutableLiveData<ArrayList<Matchst>> arrayListMutableMatchOdds = new MutableLiveData<>();
+    private MutableLiveData<MatchStats> matchStats = new MutableLiveData<>();
 
     public LiveScoreModel() {
 
@@ -124,5 +126,26 @@ public class LiveScoreModel extends ViewModel {
             }
         });
         return arrayListMutableMatchOdds;
+    }
+    public MutableLiveData<MatchStats> getMatchStats(HashMap<String, String> scoreInfo) {
+        ApiServices.getMatchStats(scoreInfo).safeSubscribe(new DisposableObserver<MatchStats>() {
+            @Override
+            public void onNext(@NonNull MatchStats matchOddsModel) {
+                if (matchOddsModel != null) {
+                    matchStats.setValue(matchOddsModel);
+                }
+            }
+
+            @Override
+            public void onError(@NonNull Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+        return matchStats;
     }
 }
