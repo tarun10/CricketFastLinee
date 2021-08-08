@@ -5,32 +5,23 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-public class FragmentAdapter extends FragmentStateAdapter {
+import java.util.ArrayList;
 
-    public FragmentAdapter(@NonNull FragmentActivity fragmentActivity) {
+public class FragmentAdapter extends FragmentStateAdapter {
+private ArrayList<Fragment> fragments;
+    public FragmentAdapter(@NonNull FragmentActivity fragmentActivity, ArrayList<Fragment> fragments) {
         super(fragmentActivity);
+        this.fragments=fragments;
     }
 
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        switch (position) {
-
-            case 0:
-                return new InfoFragment();
-            case 1:
-                return new LiveScoreFragment();
-            case 2:
-                return new OddsFragment();
-            case 3:
-                return new ScorecardFragment();
-            default:
-                return new SeriesFragment();
-        }
+        return fragments.get(position);
     }
 
     @Override
     public int getItemCount() {
-        return 5;
+        return fragments.size();
     }
 }

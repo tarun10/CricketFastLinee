@@ -35,4 +35,10 @@
         android:layout_height="match_parent"
         android:layout_weight="1" />
 
+    <ImageView
+        android:id="@+id/adsframe"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/bottomaads" />
 </androidx.appcompat.widget.LinearLayoutCompat>

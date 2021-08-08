@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
@@ -21,7 +20,7 @@ import com.learning.cricketfastline.model.stats.MatchStats;
 import java.util.HashMap;
 
 
-public class SeriesFragment extends Fragment {
+public class SeatsFragment extends Fragment {
 
     private SeriesRecyclerAdapter seriesRecyclerAdapter;
     private RecyclerView match_status;
@@ -29,6 +28,10 @@ public class SeriesFragment extends Fragment {
     private LiveScoreModel liveScoreModel;
     private ImageView text;
 
+
+    public static SeatsFragment getInstance() {
+        return new SeatsFragment();
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,12 +51,12 @@ public class SeriesFragment extends Fragment {
         liveScoreModel.getMatchStats(stringStringHashMap).observeForever(new Observer<MatchStats>() {
             @Override
             public void onChanged(MatchStats matchsts) {
-                if (matchsts != null && matchsts.getMatchst().size()>0) {
+                if (matchsts != null && matchsts.getMatchst().size() > 0) {
                     match_status.setVisibility(View.VISIBLE);
                     text.setVisibility(View.GONE);
                     seriesRecyclerAdapter = new SeriesRecyclerAdapter(matchsts.getMatchst());
                     match_status.setAdapter(seriesRecyclerAdapter);
-                }else {
+                } else {
                     match_status.setVisibility(View.GONE);
                     text.setVisibility(View.VISIBLE);
                 }

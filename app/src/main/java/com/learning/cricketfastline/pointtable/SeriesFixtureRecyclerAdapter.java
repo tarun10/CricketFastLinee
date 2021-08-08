@@ -111,7 +111,7 @@ public class SeriesFixtureRecyclerAdapter extends RecyclerView.Adapter<SeriesFix
         Glide.with(context).load(upcomingEvent.getImgeURL() + upcomingEvent.getTeamAImage()).into(teamAFlag);
         Glide.with(context).load(upcomingEvent.getImgeURL() + upcomingEvent.getTeamBImage()).into(teamBFlag);
         liveCard.setOnClickListener(view -> {
-            itemClickEvent.onClick("live", upcomingEvent.getMatchId().toString(), (upcomingEvent.getTeamA() + " vs " + upcomingEvent.getTeamB()), upcomingEvent.getVenue());
+            itemClickEvent.onClick("finished", upcomingEvent.getMatchId().toString(), (upcomingEvent.getTeamA() + " vs " + upcomingEvent.getTeamB()), upcomingEvent.getVenue());
         });
         return itemView;
     }

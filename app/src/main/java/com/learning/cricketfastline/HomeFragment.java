@@ -15,6 +15,7 @@ import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.learning.cricketfastline.livescore.TabLayoutMainActivity;
 import com.learning.cricketfastline.model.LiveMatchModel;
+import com.learning.cricketfastline.utility.constantfiles.HomeRecyclerInterface;
 import com.learning.cricketfastline.utility.constantfiles.RecyclerItemClickEvent;
 import com.learning.cricketfastline.viewpageradapters.HomeFragementViewModel;
 import com.learning.cricketfastline.viewpageradapters.HomePagerIndicatorAdaptor;
@@ -23,7 +24,7 @@ import com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator;
 
 import java.util.ArrayList;
 
-public class HomeFragment extends Fragment implements RecyclerItemClickEvent {
+public class HomeFragment extends Fragment implements HomeRecyclerInterface {
 
 
     TabLayout tabLayout, taindicator;
@@ -78,16 +79,6 @@ public class HomeFragment extends Fragment implements RecyclerItemClickEvent {
         });
     }
 
-
-    @Override
-    public void onClick(String matchType, String matchId, String title, String message) {
-        startActivity(new Intent(getActivity(), TabLayoutMainActivity.class)
-                .putExtra("matchId", matchId)
-                .putExtra("matchType", matchType)
-                .putExtra("title", title)
-                .putExtra("message", message));
-    }
-
     @Override
     public void onResume() {
         super.onResume();
@@ -102,5 +93,17 @@ public class HomeFragment extends Fragment implements RecyclerItemClickEvent {
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public void onClick(String matchType, String matchId, String title, String message, String matchTitle, String venue, String matchTime) {
+        startActivity(new Intent(getActivity(), TabLayoutMainActivity.class)
+                .putExtra("matchId", matchId)
+                .putExtra("matchType", matchType)
+                .putExtra("title", title)
+                .putExtra("message", message)
+                .putExtra("matchTitle", matchTitle)
+                .putExtra("venue", venue)
+                .putExtra("matchTime", matchTime));
     }
 }

@@ -21,7 +21,7 @@ import com.learning.cricketfastline.model.LiveMatchModel;
 import com.learning.cricketfastline.model.livejsondata.LiveScoreDataModel;
 import com.learning.cricketfastline.model.livejsondata.LiveScoreModelJsonRun;
 import com.learning.cricketfastline.utility.constantfiles.ConstantLinks;
-import com.learning.cricketfastline.utility.constantfiles.RecyclerItemClickEvent;
+import com.learning.cricketfastline.utility.constantfiles.HomeRecyclerInterface;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -32,10 +32,10 @@ public class HomePagerIndicatorAdaptor extends RecyclerView.Adapter<HomePagerInd
 
     private ArrayList<LiveMatchModel> eventTitleViews;
     private Context context;
-    private RecyclerItemClickEvent itemClickEvent;
+    private HomeRecyclerInterface itemClickEvent;
     private String teamAName, teamBname;
 
-    public HomePagerIndicatorAdaptor(ArrayList<LiveMatchModel> eventTitleViews, Context context, RecyclerItemClickEvent itemClickEvent) {
+    public HomePagerIndicatorAdaptor(ArrayList<LiveMatchModel> eventTitleViews, Context context, HomeRecyclerInterface itemClickEvent) {
         this.eventTitleViews = eventTitleViews;
         this.context = context;
         this.itemClickEvent = itemClickEvent;
@@ -118,7 +118,7 @@ public class HomePagerIndicatorAdaptor extends RecyclerView.Adapter<HomePagerInd
             holder.liveCard.setOnClickListener(view -> {
                 itemClickEvent.onClick(eventTitleViews.get(position).getMatchType(), eventTitleViews.get(position).getMatchId().toString(),
                         (eventTitleViews.get(position).getTeamA() + " vs " + eventTitleViews.get(position).getTeamB()),
-                        eventTitleViews.get(position).getTeamA());
+                        eventTitleViews.get(position).getTeamA(),eventTitleViews.get(position).getTitle(),eventTitleViews.get(position).getVenue(),eventTitleViews.get(position).getMatchtime());
             });
         }
     }

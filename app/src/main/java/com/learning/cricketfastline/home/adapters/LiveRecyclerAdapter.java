@@ -19,6 +19,7 @@ import com.google.gson.Gson;
 import com.learning.cricketfastline.R;
 import com.learning.cricketfastline.model.LiveMatchModel;
 import com.learning.cricketfastline.model.livejsondata.LiveScoreDataModel;
+import com.learning.cricketfastline.utility.constantfiles.HomeRecyclerInterface;
 import com.learning.cricketfastline.utility.constantfiles.RecyclerItemClickEvent;
 
 import java.util.ArrayList;
@@ -26,9 +27,9 @@ import java.util.ArrayList;
 public class LiveRecyclerAdapter extends RecyclerView.Adapter<LiveRecyclerAdapter.TitleViewHolder> {
     private ArrayList<LiveMatchModel> eventTitleViews;
     private Context context;
-    private RecyclerItemClickEvent itemClickEvent;
+    private HomeRecyclerInterface itemClickEvent;
 
-    public LiveRecyclerAdapter(ArrayList<LiveMatchModel> eventTitleViews, Context context, RecyclerItemClickEvent itemClickEvent) {
+    public LiveRecyclerAdapter(ArrayList<LiveMatchModel> eventTitleViews, Context context, HomeRecyclerInterface itemClickEvent) {
         this.eventTitleViews = eventTitleViews;
         this.context = context;
         this.itemClickEvent = itemClickEvent;
@@ -111,7 +112,9 @@ public class LiveRecyclerAdapter extends RecyclerView.Adapter<LiveRecyclerAdapte
         Glide.with(context).load(upcomingEvent.getImgeURL() + upcomingEvent.getTeamAImage()).into(teamAFlag);
         Glide.with(context).load(upcomingEvent.getImgeURL() + upcomingEvent.getTeamBImage()).into(teamBFlag);
         liveCard.setOnClickListener(view -> {
-            itemClickEvent.onClick(upcomingEvent.getMatchType(), upcomingEvent.getMatchId().toString(), (upcomingEvent.getTeamA() + " vs " + upcomingEvent.getTeamB()), upcomingEvent.getTeamA());
+            itemClickEvent.onClick(upcomingEvent.getMatchType(), upcomingEvent.getMatchId().toString(),
+                    (upcomingEvent.getTeamA() + " vs " + upcomingEvent.getTeamB()),
+                    upcomingEvent.getTeamA(),upcomingEvent.getTitle(),upcomingEvent.getVenue(),upcomingEvent.getMatchtime());
         });
         return itemView;
     }

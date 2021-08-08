@@ -50,6 +50,10 @@ public class LiveScoreFragment extends Fragment {
     private String teamNmae;
     private String matchType;
 
+    public static LiveScoreFragment getInstance() {
+        return new LiveScoreFragment();
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -169,6 +173,7 @@ public class LiveScoreFragment extends Fragment {
             Toast.makeText(getActivity(), "Socket connected", Toast.LENGTH_SHORT).show();
         }
         getLiveScore(scoreInfo);
+
         return view;
     }
 
@@ -209,7 +214,7 @@ public class LiveScoreFragment extends Fragment {
 
     private void getLiveScore(SocketLiveScore socketLiveScore) {
         if (socketLiveScore != null) {
-            fragmentLiveBinding.summary.setText(socketLiveScore.getSummary());
+            //fragmentLiveBinding.summary.setText(socketLiveScore.getSummary());
             fragmentLiveBinding.runXBall1.setText("" + socketLiveScore.getRunxa());
             fragmentLiveBinding.runXBall2.setText("" + socketLiveScore.getRunxb());
         }

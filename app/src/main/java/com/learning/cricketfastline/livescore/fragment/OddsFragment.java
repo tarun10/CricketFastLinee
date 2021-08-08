@@ -32,6 +32,9 @@ public class OddsFragment extends Fragment {
     private RecyclerView oddsRecyclerview;
     private TabLayout oddsTabLayout;
 
+    public static OddsFragment getInstance() {
+        return new OddsFragment();
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -1,5 +1,6 @@
 package com.learning.cricketfastline.pointtable;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.learning.cricketfastline.R;
 import com.learning.cricketfastline.databinding.SeriesFixtureFragmentBinding;
+import com.learning.cricketfastline.livescore.TabLayoutMainActivity;
 import com.learning.cricketfastline.model.LiveMatchModel;
 import com.learning.cricketfastline.utility.constantfiles.RecyclerItemClickEvent;
 
@@ -59,6 +61,9 @@ public class SeriesFixtureFragment extends Fragment implements RecyclerItemClick
 
     @Override
     public void onClick(String matchType, String matchId, String title, String message) {
-
+        startActivity(new Intent(getActivity(), TabLayoutMainActivity.class)
+                .putExtra("matchId", matchId)
+                .putExtra("matchType", matchType)
+                .putExtra("title", title).putExtra("message", message));
     }
 }

@@ -44,6 +44,9 @@ public class ScorecardFragment extends Fragment {
     private RelativeLayout firstInningHeader;
     private String matchType;
 
+    public static ScorecardFragment getInstance() {
+        return new ScorecardFragment();
+    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

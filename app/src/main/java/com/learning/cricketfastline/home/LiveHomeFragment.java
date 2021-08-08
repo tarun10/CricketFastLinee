@@ -19,12 +19,13 @@ import com.learning.cricketfastline.home.adapters.LiveRecyclerAdapter;
 import com.learning.cricketfastline.home.viewmodel.LiveFragementViewModel;
 import com.learning.cricketfastline.livescore.TabLayoutMainActivity;
 import com.learning.cricketfastline.model.LiveMatchModel;
+import com.learning.cricketfastline.utility.constantfiles.HomeRecyclerInterface;
 import com.learning.cricketfastline.utility.constantfiles.RecyclerItemClickEvent;
 
 import java.util.ArrayList;
 
 
-public class LiveHomeFragment extends Fragment implements RecyclerItemClickEvent {
+public class LiveHomeFragment extends Fragment implements HomeRecyclerInterface {
 
     private LiveFragementViewModel liveFragementViewModel;
     private FragmentLiveHomeBinding fragmentLiveHomeBinding;
@@ -53,11 +54,14 @@ public class LiveHomeFragment extends Fragment implements RecyclerItemClickEvent
     }
 
     @Override
-    public void onClick(String matchType, String matchId, String title, String message) {
+    public void onClick(String matchType, String matchId, String title, String message, String matchTitle, String venue, String matchTime) {
         startActivity(new Intent(getActivity(), TabLayoutMainActivity.class)
                 .putExtra("matchId", matchId)
                 .putExtra("matchType", matchType)
                 .putExtra("title", title)
-                .putExtra("message", message));
+                .putExtra("message", message)
+                .putExtra("matchTitle", matchTitle)
+                .putExtra("venue", venue)
+                .putExtra("matchTime", matchTime));
     }
 }

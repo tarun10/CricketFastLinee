@@ -41,11 +41,11 @@ public class InfoFragment extends Fragment {
     private ConstraintLayout teamARecyclerviewlayout, teamBRecyclerviewlayout, mainLayout;
     private String teamAnme, teamBnme;
     private LinearLayout placeHolder;
-    private TextView toss,teamAIX,teamBIX,team1,team2,seriesName,match,dateTime;
-    private ImageView team1Image,team2Image,imageView11,imageView12;
+    private TextView toss, teamAIX, teamBIX, team1, team2, seriesName, match, dateTime;
+    private ImageView team1Image, team2Image, imageView11, imageView12;
 
-    public InfoFragment() {
-
+    public static InfoFragment getInstance() {
+        return new InfoFragment();
     }
 
     @Override
@@ -77,12 +77,16 @@ public class InfoFragment extends Fragment {
 
         scoreInfo.put("matchId", getActivity().getIntent().getStringExtra("matchId"));
 
+        seriesName.setText(getActivity().getIntent().getStringExtra("venue"));
+        match.setText(getActivity().getIntent().getStringExtra("matchTitle"));
+        dateTime.setText(getActivity().getIntent().getStringExtra("matchTime"));
+
         liveScoreModel = new ViewModelProvider(this).get(LiveScoreModel.class);
         teamArecyclerview = view.findViewById(R.id.teamArecyclerview);
         teamBrecyclerview = view.findViewById(R.id.teamBrecyclerview);
         teamARecyclerviewlayout = view.findViewById(R.id.teamARecyclerviewlayout);
         teamBRecyclerviewlayout = view.findViewById(R.id.teamBRecyclerviewlayout);
-        if (scoreInfo.size()==0) {
+        if (scoreInfo.size() == 0) {
             mainLayout.setVisibility(View.GONE);
             placeHolder.setVisibility(View.VISIBLE);
         } else {
@@ -146,15 +150,12 @@ public class InfoFragment extends Fragment {
                     toss.setText(getToastMessage(summary));
                 }
                 try {
-                    teamAnme = liveMatchModels.get(0).getTeamA()!=null?liveMatchModels.get(0).getTeamA():liveScoreDataModel.getJsondata().getTeamA();
-                    teamBnme = liveMatchModels.get(0).getTeamB()!=null?liveMatchModels.get(0).getTeamB():liveScoreDataModel.getJsondata().getTeamB();
+                    teamAnme = liveMatchModels.get(0).getTeamA() != null ? liveMatchModels.get(0).getTeamA() : liveScoreDataModel.getJsondata().getTeamA();
+                    teamBnme = liveMatchModels.get(0).getTeamB() != null ? liveMatchModels.get(0).getTeamB() : liveScoreDataModel.getJsondata().getTeamB();
                     teamAIX.setText(teamAnme);
                     teamBIX.setText(teamBnme);
                     team1.setText(teamAnme);
                     team2.setText(teamBnme);
-                    seriesName.setText(liveMatchModels.get(0).getVenue());
-                    match.setText(liveMatchModels.get(0).getTitle());
-                    dateTime.setText(liveMatchModels.get(0).getMatchDate());
                     getLiveDataInfo(scoreInfo);
                 } catch (Exception e) {
                 }
