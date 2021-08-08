@@ -12,17 +12,16 @@ import android.widget.Toast;
 import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
 
-import com.learning.cricketfastline.databinding.FragmentSettingsBinding;
 import com.google.android.play.core.review.ReviewInfo;
 import com.google.android.play.core.review.ReviewManager;
 import com.google.android.play.core.review.ReviewManagerFactory;
 import com.google.android.play.core.tasks.Task;
+import com.learning.cricketfastline.databinding.FragmentSettingsBinding;
+import com.learning.cricketfastline.utility.constantfiles.ConstantLinks;
 
 public class SettingsFragment extends Fragment {
 
-    private String instagram = "https://www.instagram.com/p/CQIPRsPlh40/?utm_medium=copy_link";
-    private String fb = "https://www.facebook.com/104645538181974/posts/203537304959463/?d=n";
-    private String pintrast = "https://pin.it/3f6BfHs";
+
     private FragmentSettingsBinding fragmentSettingsBinding;
 
     @Override
@@ -33,34 +32,50 @@ public class SettingsFragment extends Fragment {
         View view = fragmentSettingsBinding.getRoot();
         fragmentSettingsBinding.facebooktextView.setOnClickListener(view13 -> {
             Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(fb));
+            i.setData(Uri.parse(ConstantLinks.FB));
             startActivity(i);
         });
         fragmentSettingsBinding.textView18.setOnClickListener(view12 -> {
             Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(instagram));
+            i.setData(Uri.parse(ConstantLinks.INSTAGRAM));
             startActivity(i);
         });
         fragmentSettingsBinding.textView15.setOnClickListener(view1 -> {
             Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(pintrast));
+            i.setData(Uri.parse(ConstantLinks.WEBSITE));
+            startActivity(i);
+        });
+
+        fragmentSettingsBinding.aboutUsView.setOnClickListener(view12 -> {
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(ConstantLinks.ABOUTUS));
+            startActivity(i);
+        });
+        fragmentSettingsBinding.termsAndConditionUpdatetextView.setOnClickListener(view12 -> {
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(ConstantLinks.TERMS_CONDITIONS));
+            startActivity(i);
+        });
+        fragmentSettingsBinding.privacyPolicyText.setOnClickListener(view12 -> {
+            Intent i = new Intent(Intent.ACTION_VIEW);
+            i.setData(Uri.parse(ConstantLinks.PRIVACY_POLICY));
             startActivity(i);
         });
         fragmentSettingsBinding.shareApp.setOnClickListener(view3 -> {
             Intent sendIntent = new Intent();
             sendIntent.setAction(Intent.ACTION_SEND);
-            sendIntent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=com.learning.cricketfastline&hl=en_IN&gl=US");
+            sendIntent.putExtra(Intent.EXTRA_TEXT, ConstantLinks.SHARE);
             sendIntent.setType("text/plain");
             Intent shareIntent = Intent.createChooser(sendIntent, null);
             startActivity(shareIntent);
 
         });
         fragmentSettingsBinding.rateUsView.setOnClickListener(view1 -> {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=com.learning.cricketfastline")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(ConstantLinks.RATEUS)));
         });
         fragmentSettingsBinding.reportText15.setOnClickListener(view1 -> {
             try {
-                Intent intent = new Intent (Intent.ACTION_VIEW , Uri.parse("mailto:" + "faircricketliveline1@gmail.com"));
+                Intent intent = new Intent (Intent.ACTION_VIEW , Uri.parse("mailto:" +ConstantLinks.EMAIL ));
                 intent.putExtra(Intent.EXTRA_SUBJECT, "Report");
                 intent.putExtra(Intent.EXTRA_TEXT, "");
                 startActivity(intent);

@@ -57,7 +57,7 @@ public class HomePagerIndicatorAdaptor extends RecyclerView.Adapter<HomePagerInd
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(ConstantLinks.whatsapplink));
+                    i.setData(Uri.parse(ConstantLinks.WHATSAPPLINK));
                     context.startActivity(i);
                 }
             });
