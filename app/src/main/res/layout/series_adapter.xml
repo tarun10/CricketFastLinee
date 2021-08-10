@@ -2,7 +2,7 @@
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/tab_background"
+    android:background="@color/tab_statsBackground"
     android:elevation="5dp"
     android:orientation="vertical">
 
@@ -12,8 +12,8 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="@string/match_status"
-        android:textColor="@color/tab_background"
-        android:background="@color/white"
+        android:textColor="@color/statstitle"
+        android:background="@color/statsBackground"
         android:textStyle="bold" />
 
     <TextView
@@ -28,8 +28,8 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="@string/pitch_status"
-        android:textColor="@color/tab_background"
-        android:background="@color/white"
+        android:textColor="@color/statstitle"
+        android:background="@color/statsBackground"
         android:textStyle="bold" />
 
     <TextView
@@ -44,8 +44,8 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="@string/match_prev"
-        android:textColor="@color/tab_background"
-        android:background="@color/white"
+        android:textColor="@color/statstitle"
+        android:background="@color/statsBackground"
         android:textStyle="bold" />
 
     <TextView

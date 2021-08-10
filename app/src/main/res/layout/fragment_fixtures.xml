@@ -16,7 +16,7 @@
         app:tabMode="scrollable"
         app:tabTextAppearance="@style/customfontstyle"
         app:tabBackground="@drawable/tab_color_selector"
-        app:tabTextColor="@color/yet_background"
+        app:tabTextColor="@color/tab_background"
         app:tabSelectedTextColor="@color/white"
         tools:ignore="MissingConstraints" />
 

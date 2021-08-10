@@ -14,9 +14,11 @@
     <color name="button_selected">#3c566d</color>
     <color name="backgroundTheme">#e7f7f7</color>
     <color name="tab_background">#FFFFFF</color>
+    <color name="tab_statsBackground">#212121</color>
     <color name="yet_background">#212121</color>
     <color name="topAndBottomBackground">#212121</color>
     <color name="dark_header">#4C4A4A</color>
+    <color name="odds_textcolor">#FFFFFF</color>
     <color name="notout">#1A3530</color>
     <color name="left_session">#015e9b</color>
     <color name="right_session">#a73f3e</color>
@@ -24,5 +26,7 @@
     <color name="main_background">#423D3D</color>
     <color name="tab_unselect">#212121</color>
     <color name="tab_selected">#717171</color>
+    <color name="statsBackground">#FFFFFF</color>
+    <color name="statstitle">#212121</color>
 </resources>
 

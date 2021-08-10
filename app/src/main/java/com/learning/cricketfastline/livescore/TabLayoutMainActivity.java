@@ -1,6 +1,11 @@
 package com.learning.cricketfastline.livescore;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -17,6 +22,7 @@ import com.learning.cricketfastline.livescore.fragment.OddsFragment;
 import com.learning.cricketfastline.livescore.fragment.ScorecardFragment;
 import com.learning.cricketfastline.livescore.fragment.SeatsFragment;
 import com.learning.cricketfastline.utility.CricketFastLine;
+import com.learning.cricketfastline.utility.constantfiles.ConstantLinks;
 
 import java.util.ArrayList;
 
@@ -31,6 +37,7 @@ public class TabLayoutMainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private Socket mSocket;
     ArrayList<Fragment> fragments=new ArrayList<>();
+    ImageView adsframe;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +47,7 @@ public class TabLayoutMainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         tabLayout = findViewById(R.id.tabLayout);
         viewPager2 = findViewById(R.id.viewPager2);
+        adsframe = findViewById(R.id.adsframe);
         setSupportActionBar(toolbar);
         this.getSupportActionBar().setHomeButtonEnabled(true);
         this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24);
@@ -53,6 +61,16 @@ public class TabLayoutMainActivity extends AppCompatActivity {
                 (tab, position) -> tab.setText(getTabHeading("finished".equals(getIntent().getStringExtra("matchType"))?true:false)[position])).attach();
 
         toolbar.setNavigationOnClickListener(v -> finish());
+
+
+        adsframe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse(ConstantLinks.WHATSAPPLINK));
+                startActivity(i);
+            }
+        });
 
     }
 
@@ -83,4 +101,5 @@ public class TabLayoutMainActivity extends AppCompatActivity {
             tabHeading = new String[]{"ODDS", "SCORECARD", "STATISTICS"};
         return tabHeading;
     }
+
 }

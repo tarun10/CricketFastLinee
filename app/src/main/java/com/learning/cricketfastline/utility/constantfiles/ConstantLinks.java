@@ -1,7 +1,7 @@
 package com.learning.cricketfastline.utility.constantfiles;
 
 public class ConstantLinks {
-    public static String WHATSAPPLINK = "https://wa.me/919756441183";
+    public static String WHATSAPPLINK = "https://wa.me/918393983930";
     public static String INSTAGRAM = "https://www.instagram.com/cricketfastline";
     public static String FB = "https://www.facebook.com/cricketfastline.official";
     public static String ABOUTUS = "https://cricketfastline.net/about-us ";

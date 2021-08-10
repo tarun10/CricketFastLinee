@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.learning.cricketfastline",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "properties": [],
+      "versionCode": 60016,
+      "versionName": "60016",
+      "enabled": true,
+      "outputFile": "app-release.apk"
+    }
+  ]
+}
