@@ -124,8 +124,11 @@ public class LiveScoreFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View view = null;
+        try {
+
         fragmentLiveBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_live, container, false);
-        View view = fragmentLiveBinding.getRoot();
+        view = fragmentLiveBinding.getRoot();
         scoreInfo.put("matchId", getActivity().getIntent().getStringExtra("matchId"));
         matchType=getActivity().getIntent().getStringExtra("matchType");
         textToSpeech = new TextToSpeech(getActivity(), status -> {
@@ -173,8 +176,11 @@ public class LiveScoreFragment extends Fragment {
             Toast.makeText(getActivity(), "Socket connected", Toast.LENGTH_SHORT).show();
         }
         getLiveScore(scoreInfo);
-
         return view;
+        }catch (Exception e){
+
+        }
+     return view;
     }
 
     private void getHistoryScore(HashMap<String, String> scoreInfo) {
@@ -213,6 +219,9 @@ public class LiveScoreFragment extends Fragment {
     }
 
     private void getLiveScore(SocketLiveScore socketLiveScore) {
+        try {
+
+
         if (socketLiveScore != null) {
             //fragmentLiveBinding.summary.setText(socketLiveScore.getSummary());
             fragmentLiveBinding.runXBall1.setText("" + socketLiveScore.getRunxa());
@@ -303,7 +312,7 @@ public class LiveScoreFragment extends Fragment {
         }
 
 
-        String favteam = socketLiveScore.getRateA().substring(socketLiveScore.getRateA().lastIndexOf("|") + 1);
+        String favteam = socketLiveScore.getFav();
         fragmentLiveBinding.currentOver.setText("In " + socketLiveScore.getOversA() + " Overs");
         fragmentLiveBinding.favTeamName.setText(favteam);
 
@@ -358,9 +367,15 @@ public class LiveScoreFragment extends Fragment {
             fragmentLiveBinding.teamFlag.setVisibility(View.GONE);
         }
 
+    }catch (Exception e){
+
+    }
 
     }
     private void getLiveScore(HashMap<String, String> scoreInfo) {
+        try {
+
+
         liveScoreModel.getUpComingData(scoreInfo).observeForever(jssondata -> {
 
             if (jssondata.size() >= 1) {
@@ -514,6 +529,9 @@ public class LiveScoreFragment extends Fragment {
                 }
             }
         });
+        }catch (Exception e){
+
+        }
     }
     private String getRates(String rate) {
         return rate.equals("") ? "0" : rate;

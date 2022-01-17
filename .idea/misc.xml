@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/tarunworkspace/cricketfastline/CricketFastLinee/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/tarunworkspace/cricketfastline/CricketFastLinee/app/src/main/res/layout/activity_point_tablectivity.xml" value="0.20416666666666666" />
+        <entry key="..\:/tarunworkspace/cricketfastline/CricketFastLinee/app/src/main/res/layout/activity_splash.xml" value="0.20416666666666666" />
+        <entry key="..\:/tarunworkspace/cricketfastline/CricketFastLinee/app/src/main/res/layout/activity_tab_layout_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/tarunworkspace/cricketfastline/CricketFastLinee/app/src/main/res/layout/fragment_info.xml" value="0.20416666666666666" />
         <entry key="..\:/tarunworkspace/cricketfastline/CricketFastLinee/app/src/main/res/layout/fragment_live.xml" value="0.20416666666666666" />
         <entry key="..\:/tarunworkspace/cricketfastline/CricketFastLinee/app/src/main/res/layout/fragment_live_home.xml" value="0.20416666666666666" />
         <entry key="..\:/tarunworkspace/cricketfastline/CricketFastLinee/app/src/main/res/layout/viewpager_header.xml" value="0.20416666666666666" />

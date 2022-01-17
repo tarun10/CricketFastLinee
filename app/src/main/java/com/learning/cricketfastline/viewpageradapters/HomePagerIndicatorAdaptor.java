@@ -53,11 +53,22 @@ public class HomePagerIndicatorAdaptor extends RecyclerView.Adapter<HomePagerInd
         if (eventTitleViews.get(position).getTitle().equals("adsbanner")) {
             holder.adsframe.setVisibility(View.VISIBLE);
             holder.liveCard.setVisibility(View.GONE);
+
+            try {
+                Glide.
+                        with(context).
+                        load(ConstantLinks.VIEWPAGGER_IMAGE_URL)
+                        .into(holder.adsframe);
+
+            }catch (Exception e){
+
+            }
+
             holder.adsframe.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse(ConstantLinks.WHATSAPPLINK));
+                    i.setData(Uri.parse(ConstantLinks.getWHATSAPPLINK()));
                     context.startActivity(i);
                 }
             });

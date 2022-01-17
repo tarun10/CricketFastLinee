@@ -13,6 +13,7 @@
  import androidx.fragment.app.Fragment;
  import androidx.navigation.NavController;
 
+ import com.bumptech.glide.Glide;
  import com.google.android.material.bottomnavigation.BottomNavigationView;
  import com.learning.cricketfastline.utility.constantfiles.ConstantLinks;
 
@@ -34,6 +35,17 @@
     private void init() {
 
         adsframe = findViewById(R.id.adsframe);
+
+        try {
+            Glide.
+                    with(getApplicationContext()).
+                    load(ConstantLinks.BANNER_IMAGE_URL)
+                    .into(adsframe);
+
+        }catch (Exception e){
+
+        }
+
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(listener);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_conainer, new HomeFragment()).commit();
@@ -43,7 +55,7 @@
 
         adsframe.setOnClickListener(view -> {
             Intent i = new Intent(Intent.ACTION_VIEW);
-            i.setData(Uri.parse(ConstantLinks.WHATSAPPLINK));
+            i.setData(Uri.parse(ConstantLinks.getWHATSAPPLINK()));
             startActivity(i);
         });
     }

@@ -12,6 +12,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.bumptech.glide.Glide;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 import com.learning.cricketfastline.R;
@@ -62,12 +63,21 @@ public class TabLayoutMainActivity extends AppCompatActivity {
 
         toolbar.setNavigationOnClickListener(v -> finish());
 
+        try {
+            Glide.
+                    with(getApplicationContext()).
+                    load(ConstantLinks.BANNER_IMAGE_URL)
+                    .into(adsframe);
+
+        }catch (Exception e){
+
+        }
 
         adsframe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(ConstantLinks.WHATSAPPLINK));
+                i.setData(Uri.parse(ConstantLinks.getWHATSAPPLINK()));
                 startActivity(i);
             }
         });
